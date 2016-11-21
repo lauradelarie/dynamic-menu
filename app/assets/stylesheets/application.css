@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
+.gluten-icon {
+  max-width: 20px;
+  max-height: 20px;
+}
+.veg-icon {
+  max-width: 20px;
+  max-height: 20px;
+}
