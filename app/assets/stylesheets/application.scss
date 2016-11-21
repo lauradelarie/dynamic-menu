@@ -16,3 +16,28 @@
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+
+.burgers-main {
+}
+
+body {
+  background-image: url('http://res.cloudinary.com/dwbu8qlck/image/upload/v1479734422/blackboard_lq6z6l.jpg');
+  color: #fff;
+}
+//
+// http://res.cloudinary.com/dwbu8qlck/image/upload/v1479735787/black-1072366_1920_bdtz5q.jpg
+ .banner {
+   margin: 0px;
+   padding: 10px;
+   text-align: center;
+   background: #2c4156;
+ }
+
+
+ .banner-title {
+   padding: 10px;
+   margin: 0px;
+   text-align: center;
+   color: #fff;
+ }
