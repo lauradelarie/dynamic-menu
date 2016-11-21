@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  meat: MyString
+  grams: 1
+  price: 9.99
+  veg: false
+  gluten: false
+
+two:
+  meat: MyString
+  grams: 1
+  price: 9.99
+  veg: false
+  gluten: false
