@@ -18,7 +18,12 @@
 
 
 
+function addTopping(event) {
+  var topping = $(event.target).parent().siblings('.topping-name').html();
+  var newTopping = $('<li></li>').html(topping);
 
+  $('#order-list-toppings').append(newTopping)
+}
 
 function addBurger(event) {
   event.preventDefault();
@@ -32,4 +37,5 @@ function addBurger(event) {
 
 $(document).ready(function() {
   $('.choose-burger-button').bind('click', addBurger);
+  $('.choose-topping-button').bind('change', addTopping);
 });
