@@ -16,13 +16,25 @@
 //= require turbolinks
 //= require_tree .
 
+function removeTopping(event) {
+  var toppingId = $(event.target).parent().siblings('.topping-name').attr('id');
+  $('#topping-' + toppingId).remove()
+}
 
 
 function addTopping(event) {
   var topping = $(event.target).parent().siblings('.topping-name').html();
+  var toppingId = $(event.target).parent().siblings('.topping-name').attr('id');
   var newTopping = $('<li></li>').html(topping);
+  newTopping.attr('id', 'topping-' + toppingId);
+  newTopping.attr('val', 1)
 
-  $('#order-list-toppings').append(newTopping)
+
+  // var existingTopping = $('#order-list-toppings').child('#' + toppingId);
+
+  // $('.choose-topping-checkbox').checked ?
+  $('#order-list-toppings').append(newTopping);
+  // : existingTopping.remove()
 }
 
 function addBurger(event) {
@@ -37,5 +49,20 @@ function addBurger(event) {
 
 $(document).ready(function() {
   $('.choose-burger-button').bind('click', addBurger);
-  $('.choose-topping-button').bind('change', addTopping);
+
+  var check;
+  $('.choose-topping-checkbox').bind('click', function(){
+    check = $(event.target).prop("checked");
+
+
+    if(check) {
+      console.log("checked")
+      addTopping(event);
+      // $('#topping-' + toppingId ).remove()
+    } else {
+      console.log("not checked")
+      removeTopping(event);
+    };
+
+  });
 });
