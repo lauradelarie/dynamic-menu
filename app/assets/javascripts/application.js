@@ -32,9 +32,9 @@ function addTopping(event) {
 }
 
 function removeBurger(event){
-  debugger
   var burgerId = $(event.target).parent().attr('id');
-  $('#' + burgerId).detach()
+  $('#' + burgerId).remove();
+  $('.choose-burger-button').show()
 }
 
 function addBurger(event) {
@@ -54,7 +54,7 @@ function addBurger(event) {
 
   newBurger.append(deleteButton);
 
-  $('button').hide()
+  $('.choose-burger-button').hide()
 }
 
 $(document).ready(function() {
