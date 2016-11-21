@@ -1,0 +1,52 @@
+<<<<<<< HEAD
+<h1> Menu </h1> <%= render 'order' %>
+=======
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Burgerbar</title>
+>>>>>>> master
+
+</head>
+
+<body>
+
+    <header class="header" href="./burger">
+    </header>
+
+    <div class="banner">
+      <img class="banner-logo" src="logo-valley-of-dinos.jpg">
+      <h1 class="banner-title">Burgerbar</h1>
+      <h2 class="banner-subtitle">Your favorite burger restaurant</h2>
+      <%= link_to 'Home', burger_path %>
+    </div>
+
+    <main class="burgers-main">
+
+      <h1> Menu </h1>
+
+       <article class="burgers-card">
+         <%= render 'burgers' %>
+       </article>
+
+       <article class="toppings-card">
+         <%= render 'toppings' %>
+       </article>
+
+      <article class="sides-card">
+        <%= render 'sides' %>
+      </article>
+
+      <article class="sauces-card">
+        <%= render 'sauces' %>
+      </article>
+
+    </main>
+
+    <footer>
+        2016 Burgerbar
+    </footer>
+
+  </body>
+
+</html>

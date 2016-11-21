@@ -4,9 +4,9 @@
 
 <% @toppings.each do |t| %>
   <tr>
-    <td><%= t.name %> </td>
+    <td class="topping-name" id="<%= t.id %>"><%= t.name %> </td>
     <td>€ <%= t.price %> </td>
-    <td><input type="checkbox"></td>
+    <td><input class="choose-topping-button" type="checkbox"></td>
   </tr>
 <% end %>
 
