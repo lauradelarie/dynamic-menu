@@ -1,6 +1,30 @@
 <h2>Choose your burger </h2>
-<ul class="burgers">
+
+<table class="burgers">
+
 <% @burgers.each do |b| %>
-<li><%= b.meat %></li>
+  <tr>
+    <td id="burger-meat"><%= b.meat %> </td>
+      <%- if b.grams.present? %>
+        <td><%= b.grams %> gr. </td>
+      <% else %>
+        <td></td>
+      <% end %>
+    <td> € <%= b.price %> </td>
+    <td> <button>Choose</button> </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <%- if b.gluten == true %>
+    <td>
+      <img class="gluten-icon" src="http://res.cloudinary.com/dsiyhc1tt/image/upload/c_scale,w_128/v1479732878/gluten_lvzioj.png">
+    <% end %>
+    <%- if b.veg == true %>
+      <img class="veg-icon" src="http://res.cloudinary.com/dsiyhc1tt/image/upload/c_scale,w_235/v1479732888/broccoli_skuja3.png">
+    </td>
+    <% end %>
+  </tr>
 <% end %>
-</ul>
+
+</table>
