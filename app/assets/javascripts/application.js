@@ -15,3 +15,21 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+
+
+
+function addBurger(event) {
+  event.preventDefault();
+
+  var parent = $(event.target).parent().siblings('.burger-name');
+  var meat = parent.html();
+  var newBurger = $('<li></li>').html(meat);
+
+  $('#order-list-burger').append(newBurger)
+}
+
+$(document).ready(function() {
+  $('.choose-burger-button').bind('click', addBurger);
+});
