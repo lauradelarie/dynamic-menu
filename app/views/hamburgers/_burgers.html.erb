@@ -4,7 +4,7 @@
 
 <% @burgers.each do |b| %>
   <tr>
-    <td class="burger-name" id="<%= b.id %>"><%= b.meat %> </td>
+    <td class="burger-name" id="burger-<%= b.id %>"><%= b.meat %> </td>
       <%- if b.grams.present? %>
         <td><%= b.grams %> gr. </td>
       <% else %>

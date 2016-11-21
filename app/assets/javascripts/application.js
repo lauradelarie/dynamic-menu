@@ -31,14 +31,29 @@ function addTopping(event) {
   $('#order-list-toppings').append(newTopping);
 }
 
+function removeBurger(event){
+  debugger
+  var burgerId = $(event.target).parent().attr('id');
+  $('#' + burgerId).detach()
+}
+
 function addBurger(event) {
   event.preventDefault();
 
   var parent = $(event.target).parent().siblings('.burger-name');
   var meat = parent.html();
+  var burgerId = parent.attr('id');
   var newBurger = $('<li></li>').html(meat);
+  newBurger.attr('id', 'burger-' + burgerId);
 
   $('#order-list-burger').append(newBurger);
+
+  var deleteButton = $('<input>').html('X');
+  deleteButton.attr('type', 'button')
+  deleteButton.attr('onClick', 'removeBurger(event)');
+
+  newBurger.append(deleteButton);
+
   $('button').hide()
 }
 
@@ -58,4 +73,6 @@ $(document).ready(function() {
     };
 
   });
+
+
 });
