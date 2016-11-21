@@ -14,6 +14,7 @@
  *= require_self
  */
 
+<<<<<<< HEAD:app/assets/stylesheets/application.css
 .gluten-icon {
   max-width: 20px;
   max-height: 20px;
@@ -22,3 +23,7 @@
   max-width: 20px;
   max-height: 20px;
 }
+=======
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+>>>>>>> master:app/assets/stylesheets/application.scss
