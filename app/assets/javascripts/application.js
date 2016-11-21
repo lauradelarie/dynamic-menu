@@ -27,7 +27,7 @@ function addBurger(event) {
   var meat = parent.html();
   var newBurger = $('<li></li>').html(meat);
 
-  $('#order-list').append(newBurger)
+  $('#order-list-burger').append(newBurger)
 }
 
 $(document).ready(function() {
