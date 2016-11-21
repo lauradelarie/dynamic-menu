@@ -14,7 +14,36 @@
  *= require_self
  */
 
-<<<<<<< HEAD:app/assets/stylesheets/application.css
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+
+<<<<<<< HEAD
+.burgers-main {
+}
+
+body {
+  background-image: url('http://res.cloudinary.com/dwbu8qlck/image/upload/v1479734422/blackboard_lq6z6l.jpg');
+  color: #fff;
+}
+//
+// http://res.cloudinary.com/dwbu8qlck/image/upload/v1479735787/black-1072366_1920_bdtz5q.jpg
+ .banner {
+   margin: 0px;
+   padding: 10px;
+   text-align: center;
+   background: #2c4156;
+ }
+
+
+ .banner-title {
+   padding: 10px;
+   margin: 0px;
+   text-align: center;
+   color: #fff;
+ }
+=======
+
 .gluten-icon {
   max-width: 20px;
   max-height: 20px;
@@ -23,7 +52,4 @@
   max-width: 20px;
   max-height: 20px;
 }
-=======
- @import "bootstrap-sprockets";
- @import "bootstrap";
->>>>>>> master:app/assets/stylesheets/application.scss
+>>>>>>> master

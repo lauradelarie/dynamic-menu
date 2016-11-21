@@ -20,22 +20,27 @@
     <main class="burgers-main">
 
       <h1> Menu </h1>
-
-       <article class="burgers-card">
+    <div class="flex-container">
+       <article class="flexchild">
          <%= render 'burgers' %>
        </article>
 
-       <article class="toppings-card">
+       <article class="flexchild">
          <%= render 'toppings' %>
        </article>
 
-      <article class="sides-card">
+      <article class="flexchild">
         <%= render 'sides' %>
       </article>
 
-      <article class="sauces-card">
+      <article class="flexchild">
         <%= render 'sauces' %>
       </article>
+    </div>
+
+    <div class="order">
+        <%= render 'order'%>
+    </div>
 
     </main>
 

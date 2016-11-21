@@ -42,6 +42,30 @@ body {
    color: #fff;
  }
 
+ .flex-container {
+  display: flex;
+  width: 65%;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.flexchild {
+
+  // width: 33%;
+  // height: 400px;
+}
+
+  .order {
+    position: absolute;
+    top: 200px;
+    right: 0;
+    width: 400px;
+  }
+
+
+
 .gluten-icon {
   max-width: 20px;
   max-height: 20px;
