@@ -17,7 +17,8 @@
 //= require_tree .
 
 function removeTopping(event) {
-  debugger
+  var toppingId = $(event.target).parent().siblings('.topping-name').attr('id');
+  $('#topping-' + toppingId).remove()
 }
 
 
@@ -60,6 +61,7 @@ $(document).ready(function() {
       // $('#topping-' + toppingId ).remove()
     } else {
       console.log("not checked")
+      removeTopping(event);
     };
 
   });
