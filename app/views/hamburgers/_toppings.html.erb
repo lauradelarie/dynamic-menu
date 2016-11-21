@@ -1,7 +1,13 @@
 <h2> Choose your toppings</h2>
 
-<ul class="toppings">
+<table class="toppings">
+
 <% @toppings.each do |t| %>
-<li><%= t.name %> </li>
+  <tr>
+    <td><%= t.name %> </td>
+    <td>€ <%= t.price %> </td>
+    <td><input type="checkbox"></td>
+  </tr>
 <% end %>
-</ul>
+
+</table>
