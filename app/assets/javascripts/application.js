@@ -21,7 +21,6 @@ function removeTopping(event) {
   $('#topping-' + toppingId).remove()
 }
 
-
 function addTopping(event) {
   var topping = $(event.target).parent().siblings('.topping-name').html();
   var toppingId = $(event.target).parent().siblings('.topping-name').attr('id');
@@ -29,12 +28,7 @@ function addTopping(event) {
   newTopping.attr('id', 'topping-' + toppingId);
   newTopping.attr('val', 1)
 
-
-  // var existingTopping = $('#order-list-toppings').child('#' + toppingId);
-
-  // $('.choose-topping-checkbox').checked ?
   $('#order-list-toppings').append(newTopping);
-  // : existingTopping.remove()
 }
 
 function addBurger(event) {
@@ -54,11 +48,9 @@ $(document).ready(function() {
   $('.choose-topping-checkbox').bind('click', function(){
     check = $(event.target).prop("checked");
 
-
     if(check) {
       console.log("checked")
       addTopping(event);
-      // $('#topping-' + toppingId ).remove()
     } else {
       console.log("not checked")
       removeTopping(event);
