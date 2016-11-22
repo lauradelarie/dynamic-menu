@@ -42,36 +42,54 @@ body {
    color: #fff;
  }
 
- .panel panel-default {
-   width: 50%;
- }
-
 
  .flex-container {
   display: flex;
-  width: 65%;
+  width: 100%;
   justify-content: space-around;
   align-items: flex-start;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   flex-direction: row;
 }
 
+.flex-child1 {
+    display: flex;
+    width: 70%;
+    // border-style: double;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding-bottom: 30px;
+}
+
 .flexchild {
-    width: 45%; /* needs to be redefined if we want gutters */
+    width: 45%;
     height: 400px;
-    padding-left: 50px;
-    margin: 5px;
+    padding-left: 20px;
     margin-top: 30px;
     border-style: double;
 }
 
-  .order {
-    position: absolute;
-    top: 200px;
-    right: 0;
-    width: 400px;
-  }
+.flex-child2 {
+    width: 30%;
+    // border-style: double;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    height: 100%;
+}
 
+
+  .flexchild-order {
+    width: 83%;
+    padding-left: 20px;
+    margin: 30px;
+    margin-top: 30px;
+    border-style: double;
+    height: 1030px;
+  }
 
 
 .gluten-icon {

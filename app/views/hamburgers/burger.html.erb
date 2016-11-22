@@ -56,25 +56,42 @@
 
       <h1> Menu </h1>
     <div class="flex-container">
-       <article class="flexchild">
-         <%= render 'burgers' %>
-       </article>
 
-       <article class="flexchild">
-         <%= render 'toppings' %>
-       </article>
+      <div class="flex-child1"
 
-      <article class="flexchild">
-        <%= render 'sides' %>
-      </article>
+          <article class="flexchild">
 
-      <article class="flexchild">
-        <%= render 'sauces' %>
-      </article>
-    </div>
+          </article>
 
-    <div class="order">
-        <%= render 'order'%>
+          <article class="flexchild">
+            <%= render 'burgers' %>
+          </article>
+
+          <article class="flexchild">
+            <%= render 'toppings' %>
+          </article>
+
+          <article class="flexchild">
+            <%= render 'sides' %>
+          </article>
+
+          <article class="flexchild">
+            <%= render 'sauces' %>
+          </article>
+
+      </div>
+
+      <div class="flex-child2"
+
+        <article class="flexchild">
+
+        </article>
+
+        <article class="flexchild-order">
+         <%= render 'order'%>
+        </article>
+      </div>
+
     </div>
 
     </main>

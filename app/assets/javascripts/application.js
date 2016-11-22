@@ -16,6 +16,7 @@
 //= require turbolinks
 //= require_tree .
 
+
 function removeTopping(event) {
   var toppingId = $(event.target).parent().siblings('.topping-name').attr('id');
   $('#topping-' + toppingId).remove()
