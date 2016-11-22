@@ -1,0 +1,10 @@
+<h3> admin </h3>
+
+
+<% @hamburgers.each do |h| %>
+  <%- if h.served == false %>
+    <p><%= h.choise %> <button type="button" class="serve-burger" id="serve-<%=h.id%>">served</button></p>
+  <% end %>
+<% end %>
+
+<%= link_to "Log out", destroy_user_session_path, method: :delete %>
