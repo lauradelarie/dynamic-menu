@@ -79,7 +79,7 @@ h2{
 
 .flexchild {
     width: 45%;
-    height: 500px;
+    height: 100;
     padding-left: 20px;
     margin-top: 30px;
     border-style: double;
@@ -133,4 +133,18 @@ h2{
   height: 30px;
   border: none;
   background: no-repeat url("http://res.cloudinary.com/dwbu8qlck/image/upload/c_scale,w_24/v1479816678/gluten_lvzioj_fvpefg.png") 0 0;
+}
+
+.buttonpopoverstyle2{
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: no-repeat url("http://res.cloudinary.com/dwbu8qlck/image/upload/c_scale,w_23/v1479830442/broccoli_skuja3_jrvq56.png") 0 0;
+}
+
+.choose-burger-button{
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: no-repeat url("http://res.cloudinary.com/dwbu8qlck/image/upload/c_scale,e_negate,w_28/v1479831889/add-512_ofjjye.png") 0 0;
 }
