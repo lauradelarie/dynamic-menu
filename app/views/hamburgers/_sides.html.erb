@@ -1,8 +1,13 @@
 <h2> Zap-a-Side</h2>
 
+<table class="sides">
 
-<ul class="sides">
 <% @sides.each do |s| %>
-<li><%= s.name %> </li>
+  <tr>
+    <td class="side-name" data-price='{"Price":"<%= s.price %>"}' id="side-<%= s.id %>"><%= s.name %> </td>
+    <td>€ <%= s.price %> </td>
+    <td><input class="choose-side-checkbox" type="checkbox"></td>
+  </tr>
 <% end %>
-</ul>
+
+</table>

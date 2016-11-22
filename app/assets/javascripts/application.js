@@ -23,6 +23,9 @@ function makeDescription(){
   $('ul.description').append('<li></li>').html(description);
 }
 
+// Order funtions//
+///////////////////////////////////////////////////////////////////////////////////
+
 function createOrder(price, choice) {
 
   $.ajax({
@@ -77,6 +80,92 @@ function calculateTotal(){
   $('ul.total-price').append('<li>€</li>').html(totalPrice);
 }
 
+// Sauce funtions//
+///////////////////////////////////////////////////////////////////////////////////
+
+function removeSauce(event) {
+//remove side from orderlist
+  var sauceId = $(event.target).parent().siblings('.sauce-name').attr('id');
+  $('#sauce-' + sauceId).remove()
+//remove sides price from pricesArray
+  var saucePrice = Number($(event.target).parent().siblings('.sauce-name').data("price").Price);
+  var index = pricesArray.indexOf(saucePrice);
+  pricesArray.splice(index, 1);
+
+  calculateTotal();
+
+//remove the sides name from the choicesArray
+  var sauceName = $(event.target).parent().siblings('.sauce-name').html();
+  var sauceIndex = choicesArray.indexOf(sauceName);
+  choicesArray.splice(sauceIndex, 1);
+
+  makeDescription();
+}
+
+function addSauce(event) {
+  var sauce = $(event.target).parent().siblings('.sauce-name').html();
+  var sauceId = $(event.target).parent().siblings('.sauce-name').attr('id');
+  var newSauce = $('<li></li>').html(sauce);
+  newSauce.attr('id', 'sauce-' + sauceId);
+  newSauce.attr('val', 1)
+
+  $('#order-list-sauces').append(newSauce);
+
+  // add the topping's price to the pricesArray
+  var saucePrice = Number($(event.target).parent().siblings('.sauce-name').data("price").Price);
+
+  pricesArray.push(saucePrice);
+  calculateTotal();
+
+  choicesArray.push(sauce);
+  makeDescription();
+}
+
+
+// Side funtions//
+///////////////////////////////////////////////////////////////////////////////////
+
+function removeSide(event) {
+//remove side from orderlist
+  var sideId = $(event.target).parent().siblings('.side-name').attr('id');
+  $('#side-' + sideId).remove()
+//remove sides price from pricesArray
+  var sidePrice = Number($(event.target).parent().siblings('.side-name').data("price").Price);
+  var index = pricesArray.indexOf(sidePrice);
+  pricesArray.splice(index, 1);
+
+  calculateTotal();
+
+//remove the sides name from the choicesArray
+  var sideName = $(event.target).parent().siblings('.side-name').html();
+  var sideIndex = choicesArray.indexOf(sideName);
+  choicesArray.splice(sideIndex, 1);
+
+  makeDescription();
+}
+
+function addSide(event) {
+  var side = $(event.target).parent().siblings('.side-name').html();
+  var sideId = $(event.target).parent().siblings('.side-name').attr('id');
+  var newSide = $('<li></li>').html(side);
+  newSide.attr('id', 'side-' + sideId);
+  newSide.attr('val', 1)
+
+  $('#order-list-sides').append(newSide);
+
+  // add the topping's price to the pricesArray
+  var sidePrice = Number($(event.target).parent().siblings('.side-name').data("price").Price);
+
+  pricesArray.push(sidePrice);
+  calculateTotal();
+
+  choicesArray.push(side);
+  makeDescription();
+}
+
+
+//Topping Functions//
+///////////////////////////////////////////////////////////////////////////////////
 
 function removeTopping(event) {
 //remove topping from orderlist
@@ -115,6 +204,10 @@ function addTopping(event) {
   choicesArray.push(topping);
   makeDescription();
 }
+
+
+// Burger functions//
+///////////////////////////////////////////////////////////////////////////////////
 
 function removeBurger(event){
 
@@ -167,6 +260,7 @@ function addBurger(event) {
   makeDescription();
 }
 
+///////////////////////////////////////////////////////////////////////////////////
 
 $(document).ready(function() {
   $('.choose-burger-button').bind('click', addBurger);
@@ -185,8 +279,39 @@ $(document).ready(function() {
 
   });
 
+  var check;
+  $('.choose-side-checkbox').bind('click', function(){
+    check = $(event.target).prop("checked");
+
+    if(check) {
+      console.log("checked")
+      addSide(event);
+    } else {
+      console.log("not checked")
+      removeSide(event);
+    };
+
+  });
+
+  var check;
+  $('.choose-sauce-checkbox').bind('click', function(){
+    check = $(event.target).prop("checked");
+
+    if(check) {
+      console.log("checked")
+      addSauce(event);
+    } else {
+      console.log("not checked")
+      removeSauce(event);
+    };
+
+  });
+
   $('.place-order').bind('click', submitOrder);
 });
+
+
+///////////////////////////////////////////////////////////////////////////////////
 
 $(function () {
   $('[data-toggle="popover"]').popover();

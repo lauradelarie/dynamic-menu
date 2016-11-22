@@ -1,7 +1,13 @@
-<h2> Squeeze-a-Sauce </h2>
-<ul class="sauces">
-<% @sauces.each do |s| %>
-<li> <%= s.name %> </li>
+<h2>Squeeze-a-Sauce</h2>
+
+<table class="sauces">
+
+<% @sides.each do |s| %>
+  <tr>
+    <td class="sauce-name" data-price='{"Price":"<%= s.price %>"}' id="sauce-<%= s.id %>"><%= s.name %> </td>
+    <td>€ <%= s.price %> </td>
+    <td><input class="choose-sauce-checkbox" type="checkbox"></td>
+  </tr>
 <% end %>
 
-</ul>
+</table>
