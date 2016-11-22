@@ -46,7 +46,6 @@ h2{
    background: #000;
    max-width: 1400px;
    height: 100px;
-   background: red;
  }
 
 
@@ -80,7 +79,7 @@ h2{
 
 .flexchild {
     width: 45%;
-    height: 400px;
+    height: 500px;
     padding-left: 20px;
     margin-top: 30px;
     border-style: double;
@@ -123,4 +122,15 @@ h2{
 
 .carousel-inner > .item > img {
     margin: 0 auto;
+}
+
+.popover-content{
+    color: #000000 !important;/*black color*/
+}
+
+.buttonpopoverstyle{
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: no-repeat url("http://res.cloudinary.com/dwbu8qlck/image/upload/c_scale,w_24/v1479816678/gluten_lvzioj_fvpefg.png") 0 0;
 }
