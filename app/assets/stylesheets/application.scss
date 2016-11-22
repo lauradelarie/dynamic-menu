@@ -90,7 +90,7 @@ h2{
 
 .flexchild {
     width: 45%;
-    height: 100;
+    height: 550px;
     padding-left: 20px;
     margin-top: 30px;
     border-style: double;
@@ -114,8 +114,9 @@ h2{
     margin-top: 30px;
     border-style: double;
     height: 1030px;
+    // opacity: 0.5;
+    // filter: alpha(opacity=50); /* For IE8 and earlier */
   }
-
 
 .gluten-icon {
   max-width: 20px;
@@ -157,5 +158,5 @@ h2{
   width: 30px;
   height: 30px;
   border: none;
-  background: no-repeat url("http://res.cloudinary.com/dwbu8qlck/image/upload/c_scale,e_negate,w_28/v1479831889/add-512_ofjjye.png") 0 0;
+  background: no-repeat url("http://res.cloudinary.com/dwbu8qlck/image/upload/c_scale,e_negate,w_21/v1479832987/download_zihj3q.png") 0 0;
 }
