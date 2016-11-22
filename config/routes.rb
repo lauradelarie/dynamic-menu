@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 root "hamburgers#index"
 
 get "burger" => "hamburgers#burger"
+get "admin" => "hamburgers#admin"
 
 resources :hamburgers
 
