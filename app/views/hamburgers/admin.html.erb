@@ -3,7 +3,7 @@
 
 <% @hamburgers.each do |h| %>
   <%- if h.served == false %>
-    <p><%= h.choise %> <button type="button" class="serve-burger" id="serve-<%=h.id%>">served</button></p>
+    <p><%= h.choise %> <button type="button" class="serve-burger-button" id="serve-<%=h.id%>" data-id='{"Id":"<%= h.id %>"}'>serve</button></p>
   <% end %>
 <% end %>
 
