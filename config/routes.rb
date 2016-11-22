@@ -5,6 +5,6 @@ root "hamburgers#index"
 
 get "burger" => "hamburgers#burger"
 
-
+resources :hamburgers
 
 end

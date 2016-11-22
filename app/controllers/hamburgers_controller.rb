@@ -12,5 +12,25 @@ class HamburgersController < ApplicationController
     @sides = Side.all
   end
 
+  def create
+    order = Order.create(order_params)
+    if order.save
+      render status: 200, json: {
+        order: order
+      }.to_json
+    else
+      render status: 422, json: {
+        error: order.errors.full_messages
+      }.to_json
+    end
+  end
+
+
+
+  private
+
+    def order_params
+      params.require(:order).permit(:total_price, :choise)
+    end
 
 end
