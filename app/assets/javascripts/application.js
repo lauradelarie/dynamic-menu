@@ -23,18 +23,35 @@ function makeDescription(){
   $('ul.description').append('<li></li>').html(description);
 }
 
-// function saveBurger(price, name, choices) {
-//
-//   $('ajax') data: price, name, choices
-// }
-//
-// function submitBurger(event) {
-//   var price
-//   var name
-//   var choices
-//
-//   saveBurger(price, name, choices)
-// }
+function createOrder(price, choice) {
+
+  $.ajax({
+    type: "POST",
+    url: "/hamburgers",
+    data: JSON.stringify({
+      order: {
+      total_price: price,
+      choise: choice,
+    }
+  }),
+
+    contentType: "application/json",
+    dataType: "json"
+  })
+
+  .success(function(data) {
+    var succes = $('<li></li>').html("Sent to the kitchen!");
+    $('ul.description').append(succes);
+  })
+}
+
+function submitOrder(event) {
+  var price = $(event.target).siblings('.total-price').html();
+  var choice = $(event.target).siblings('.description').html();
+  // var tablenumber
+
+  createOrder(price, choice)
+}
 
 
 var pricesArray = [];
@@ -157,6 +174,7 @@ $(document).ready(function() {
 
   });
 
+  $('.place-order').bind('click', submitOrder);
 });
 
 $(function () {
