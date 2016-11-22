@@ -19,7 +19,15 @@
 
 // push all the added elements prices into this array and
 // .reduce to get the sum
-var pricesArray = []
+var pricesArray = [];
+
+function calculateTotal(){
+  var totalPrice = pricesArray.reduce((a, b) => {
+    return a + b
+  }).toFixed(2)
+
+  $('ul.total-price').append('<li></li>').html(totalPrice);
+}
 
 
 function removeTopping(event) {
@@ -30,6 +38,8 @@ function removeTopping(event) {
   var toppingPrice = Number($(event.target).parent().siblings('.topping-name').data("price").Price);
   var index = pricesArray.indexOf(toppingPrice);
   pricesArray.splice(index, 1);
+
+  calculateTotal();
 }
 
 function addTopping(event) {
@@ -44,6 +54,8 @@ function addTopping(event) {
   // get topping price and add to pricesArray
   var toppingPrice = Number($(event.target).parent().siblings('.topping-name').data("price").Price);
   pricesArray.push(toppingPrice);
+
+  calculateTotal();
 }
 
 function removeBurger(event){
@@ -58,6 +70,8 @@ function removeBurger(event){
   pricesArray.splice(index, 1);
 
   $('.choose-burger-button').show();
+
+  calculateTotal();
 }
 
 function addBurger(event) {
@@ -82,6 +96,8 @@ function addBurger(event) {
   $('.choose-burger-button').hide()
 
   pricesArray.push(burgerPrice);
+
+  calculateTotal();
 }
 
 
