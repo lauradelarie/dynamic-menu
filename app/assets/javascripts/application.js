@@ -16,10 +16,38 @@
 //= require turbolinks
 //= require_tree .
 
+var choicesArray = [];
 
-// push all the added elements prices into this array and
-// .reduce to get the sum
-var pricesArray = []
+function makeDescription(){
+  var description = choicesArray.join(', ')
+  $('ul.description').append('<li></li>').html(description);
+}
+
+// function saveBurger(price, name, choices) {
+//
+//   $('ajax') data: price, name, choices
+// }
+//
+// function submitBurger(event) {
+//   var price
+//   var name
+//   var choices
+//
+//   saveBurger(price, name, choices)
+// }
+
+
+var pricesArray = [];
+
+function calculateTotal(){
+  var totalPrice;
+  (pricesArray.length > 0) ?
+  totalPrice = pricesArray.reduce((a, b) => {
+    return a + b
+  }).toFixed(2) : (totalPrice = 0)
+
+  $('ul.total-price').append('<li></li>').html('€' + totalPrice);
+}
 
 
 function removeTopping(event) {
@@ -30,6 +58,15 @@ function removeTopping(event) {
   var toppingPrice = Number($(event.target).parent().siblings('.topping-name').data("price").Price);
   var index = pricesArray.indexOf(toppingPrice);
   pricesArray.splice(index, 1);
+
+  calculateTotal();
+
+//remove the topping's name from the choicesArray
+  var toppingName = $(event.target).parent().siblings('.topping-name').html();
+  var toppingIndex = choicesArray.indexOf(toppingName);
+  choicesArray.splice(toppingIndex, 1);
+
+  makeDescription();
 }
 
 function addTopping(event) {
@@ -41,9 +78,14 @@ function addTopping(event) {
 
   $('#order-list-toppings').append(newTopping);
 
-  // get topping price and add to pricesArray
+  // add the topping's price to the pricesArray
   var toppingPrice = Number($(event.target).parent().siblings('.topping-name').data("price").Price);
+
   pricesArray.push(toppingPrice);
+  calculateTotal();
+
+  choicesArray.push(topping);
+  makeDescription();
 }
 
 function removeBurger(event){
@@ -54,8 +96,17 @@ function removeBurger(event){
 
 //remove the burger's price from the pricesArray
   var burgerPrice = Number($(event.target).parent().attr('data-price'));
-  var index = pricesArray.indexOf(burgerPrice);
-  pricesArray.splice(index, 1);
+  var priceIndex = pricesArray.indexOf(burgerPrice);
+  pricesArray.splice(priceIndex, 1);
+
+  calculateTotal();
+
+  //remove the burger's name from the choicesArray
+  var burgerName = $(event.target).siblings('.meat-name').html();
+  var choiceIndex = choicesArray.indexOf(burgerName);
+  choicesArray.splice(choiceIndex, 1);
+
+  makeDescription();
 
   $('.choose-burger-button').show();
 }
@@ -67,7 +118,7 @@ function addBurger(event) {
   var parent = $(event.target).parent().siblings('.burger-name');
   var meat = parent.html();
   var burgerId = parent.attr('id');
-  var newBurger = $('<li></li>').html(meat);
+  var newBurger = $('<li></li>').html('<div class="meat-name">' + meat + '</div>');
   newBurger.attr('id', 'burger-' + burgerId);
   newBurger.attr('data-price', burgerPrice);
 
@@ -82,6 +133,10 @@ function addBurger(event) {
   $('.choose-burger-button').hide()
 
   pricesArray.push(burgerPrice);
+  calculateTotal();
+
+  choicesArray.push(meat);
+  makeDescription();
 }
 
 
