@@ -43,10 +43,21 @@ function createOrder(price, choice) {
     var succes = $('<li></li>').html("Sent to the kitchen!");
     $('ul.description').append(succes);
   })
+
+  .fail(function(error) {
+    errors = JSON.parse(error.responseText).error
+
+    $.each(errors, function(index, value) {
+      var errorItem = $("<li></li>").html(value);
+      $("#errors").append(errorItem);
+    });
+  })
+
 }
 
 function submitOrder(event) {
-  var price = $(event.target).siblings('.total-price').html();
+  debugger
+  var price = Number($(event.target).siblings('.total-price').html());
   var choice = $(event.target).siblings('.description').html();
   // var tablenumber
 
@@ -63,7 +74,7 @@ function calculateTotal(){
     return a + b
   }).toFixed(2) : (totalPrice = 0)
 
-  $('ul.total-price').append('<li></li>').html('€' + totalPrice);
+  $('ul.total-price').append('<li>€</li>').html(totalPrice);
 }
 
 
