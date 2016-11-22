@@ -17,9 +17,19 @@
 //= require_tree .
 
 
+// push all the added elements prices into this array and
+// .reduce to get the sum
+var pricesArray = []
+
+
 function removeTopping(event) {
+//remove topping from orderlist
   var toppingId = $(event.target).parent().siblings('.topping-name').attr('id');
   $('#topping-' + toppingId).remove()
+//remove topping's price from pricesArray
+  var toppingPrice = Number($(event.target).parent().siblings('.topping-name').data("price").Price);
+  var index = pricesArray.indexOf(toppingPrice);
+  pricesArray.splice(index, 1);
 }
 
 function addTopping(event) {
@@ -30,22 +40,36 @@ function addTopping(event) {
   newTopping.attr('val', 1)
 
   $('#order-list-toppings').append(newTopping);
+
+  // get topping price and add to pricesArray
+  var toppingPrice = Number($(event.target).parent().siblings('.topping-name').data("price").Price);
+  pricesArray.push(toppingPrice);
 }
 
 function removeBurger(event){
+
+//remove the burger from the orderlist
   var burgerId = $(event.target).parent().attr('id');
   $('#' + burgerId).remove();
-  $('.choose-burger-button').show()
+
+//remove the burger's price from the pricesArray
+  var burgerPrice = Number($(event.target).parent().attr('data-price'));
+  var index = pricesArray.indexOf(burgerPrice);
+  pricesArray.splice(index, 1);
+
+  $('.choose-burger-button').show();
 }
 
 function addBurger(event) {
   event.preventDefault();
 
+  var burgerPrice = Number($(event.target).parent().siblings('.burger-price').data("price").Price);
   var parent = $(event.target).parent().siblings('.burger-name');
   var meat = parent.html();
   var burgerId = parent.attr('id');
   var newBurger = $('<li></li>').html(meat);
   newBurger.attr('id', 'burger-' + burgerId);
+  newBurger.attr('data-price', burgerPrice);
 
   $('#order-list-burger').append(newBurger);
 
@@ -56,7 +80,10 @@ function addBurger(event) {
   newBurger.append(deleteButton);
 
   $('.choose-burger-button').hide()
+
+  pricesArray.push(burgerPrice);
 }
+
 
 $(document).ready(function() {
   $('.choose-burger-button').bind('click', addBurger);
