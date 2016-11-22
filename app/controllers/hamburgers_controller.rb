@@ -30,11 +30,26 @@ class HamburgersController < ApplicationController
   end
 
 
+  def update
+    hamburger = Order.find(params[:id])
+    hamburger.update(order_params)
+    if hamburger.save
+      render status: 200, json: {
+        order: hamburger
+      }.to_json
+    else
+      render status: 422, json: {
+        error: hamburger.errors.full_messages
+      }.to_json
+    end
+  end
+
+
 
   private
 
     def order_params
-      params.require(:order).permit(:total_price, :choise)
+      params.require(:order).permit(:total_price, :choise, :served)
     end
 
 end
