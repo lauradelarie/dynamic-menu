@@ -19,7 +19,6 @@
 var choicesArray = [];
 
 function makeDescription(){
-  debugger
   var description = choicesArray.join(', ')
   $('ul.description').append('<li></li>').html(description);
 }
@@ -61,6 +60,13 @@ function removeTopping(event) {
   pricesArray.splice(index, 1);
 
   calculateTotal();
+
+//remove the topping's name from the choicesArray
+  var toppingName = $(event.target).parent().siblings('.topping-name').html();
+  var toppingIndex = choicesArray.indexOf(toppingName);
+  choicesArray.splice(toppingIndex, 1);
+
+  makeDescription();
 }
 
 function addTopping(event) {
@@ -72,7 +78,7 @@ function addTopping(event) {
 
   $('#order-list-toppings').append(newTopping);
 
-  // get topping price and add to pricesArray
+  // add the topping's price to the pricesArray
   var toppingPrice = Number($(event.target).parent().siblings('.topping-name').data("price").Price);
 
   pricesArray.push(toppingPrice);
