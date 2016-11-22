@@ -1,5 +1,5 @@
 class HamburgersController < ApplicationController
-
+  before_action :authenticate_user!, only: :admin
 
   def index
 
@@ -10,6 +10,10 @@ class HamburgersController < ApplicationController
     @toppings = Topping.all
     @sauces = Sauce.all
     @sides = Side.all
+  end
+
+  def admin
+    @hamburgers = Order.all
   end
 
   def create
