@@ -13,7 +13,7 @@ class HamburgersController < ApplicationController
   end
 
   def admin
-
+    @hamburgers = Order.all
   end
 
   def create
