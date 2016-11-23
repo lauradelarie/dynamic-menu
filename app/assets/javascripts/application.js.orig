@@ -70,10 +70,28 @@ var pricesArray = [];
 
 function calculateTotal() {
   var totalPrice;
+<<<<<<< HEAD
   (pricesArray.length > 0) ?
   totalPrice = pricesArray.reduce(function(a, b) {
     return a + b
   }).toFixed(2) : (totalPrice = 0)
+=======
+
+
+  // (pricesArray.length > 0) ?
+  // totalPrice = pricesArray.reduce((a, b) => {
+  //   return a + b;
+  // }).toFixed(2) : (totalPrice = 0);
+
+
+  if (pricesArray.length > 0) {
+    totalPrice = pricesArray.reduce(function(a, b) {
+      return a + b;
+    }).toFixed(2);
+  } else {
+    totalPrice = 0;
+  }
+>>>>>>> master
 
   $('ul.total-price').append('<li>€</li>').html(totalPrice);
 }
