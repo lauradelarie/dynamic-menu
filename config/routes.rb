@@ -8,5 +8,6 @@ get "burger" => "hamburgers#burger"
 get "admin" => "hamburgers#admin"
 
 resources :hamburgers
+resources :tables
 
 end

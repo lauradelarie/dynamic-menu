@@ -26,7 +26,7 @@ function makeDescription() {
 // Order funtions//
 ///////////////////////////////////////////////////////////////////////////////////
 
-function createOrder(price, choice, tableNr){
+function createOrder(price, choice, tableNr, tableId){
 
   $.ajax({
     type: "POST",
@@ -36,6 +36,7 @@ function createOrder(price, choice, tableNr){
       total_price: price,
       choise: choice,
       table: tableNr,
+      table_id: tableId
     }
   }),
 
@@ -62,8 +63,13 @@ function submitOrder(event) {
   var price = Number($(event.target).siblings('.total-price').html());
   var choice = $(event.target).siblings('.description').html();
   var tableNr = $('.dropdownmenu').val();
+  // var tableId = $('.dropdownmenu :selected').data("id").Id
+  debugger
+  var tableIdStorage = localStorage.getItem('tableId');
+  var tableObject = JSON.parse(tableIdStorage);
+  var tableId = Number(tableObject["Id"]);
 
-  createOrder(price, choice, tableNr);
+  createOrder(price, choice, tableNr, tableId);
 }
 
 var pricesArray = [];
@@ -262,39 +268,36 @@ function addBurger(event) {
 ///////////////////////////////////////////////////////////////////////////////////
 
 function chooseTable(){
-  var tableNr = $('.dropdownmenu').val();
-  debugger
-  // $.ajax({
-  //   type: "PUT",
-  //   url: "/hamburgers",
-  //   data: JSON.stringify({
-  //     order: {
-  //     total_price: price,
-  //     choise: choice,
-  //     table: tableNr,
-  //   }
-  // }),
-  //
-  //   contentType: "application/json",
-  //   dataType: "json"
-  // })
-  //
-  // .success(function(data) {
-  //   var succes = $('<li></li>').html("Sent to the kitchen!");
-  //   $('ul.description').append(succes);
-  // })
-  //
-  // .fail(function(error) {
-  //   errors = JSON.parse(error.responseText).error
-  //
-  //   $.each(errors, function(index, value) {
-  //     var errorItem = $("<li></li>").html(value);
-  //     $("#errors").append(errorItem);
-  //   });
-  // })
+  var tableNr = $('.dropdownmenu :selected').text();
+  var id = $('.dropdownmenu :selected').data("id").Id
 
+  $.ajax({
+    type: "PUT",
+    url: "/tables/" + id,
+    data: JSON.stringify({
+      table: {
+        taken: true
+      }
+    }),
 
-  $('#table-number').append(tableNr);
+    contentType: "application/json",
+    dataType: "json"
+  })
+
+  .success(function(data) {
+    var tableIdStorage = { "Id": id }
+    localStorage.setItem('tableId', JSON.stringify(tableIdStorage));
+  })
+
+  .fail(function(error) {
+    errors = JSON.parse(error.responseText).error
+
+    $.each(errors, function(index, value) {
+      var errorItem = $("<li></li>").html(value);
+      $("#errors").append(errorItem);
+    });
+  })
+
 }
 
 ///////////////////////////////////////////////////////////////////////////////////

@@ -3,7 +3,11 @@
 
 <% @hamburgers.each do |h| %>
   <%- if h.served == false %>
-    <p><strong><%= h.table %>: </strong><%= h.choise %> <button type="button" class="serve-burger-button" id="serve-<%=h.id%>" data-id='{"Id":"<%= h.id %>"}'>serve</button></p>
+    <p><strong><%= h.table %>: </strong>
+    <%= h.choise %>
+    <button type="button" class="serve-burger-button" id="serve-<%=h.id%>" data-id='{"Id":"<%= h.id %>"}'>serve</button>
+    <button type="button" class="free-table-button" id="free-table-<%= h.table_id %>">Free table</button>
+    </p>
   <% end %>
 <% end %>
 
