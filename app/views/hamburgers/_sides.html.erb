@@ -4,7 +4,7 @@
 
 <% @sides.each do |s| %>
   <tr>
-    <td class="side-name" data-price='{"Price":"<%= s.price %>"}' id="side-<%= s.id %>"><%= s.name %> </td>
+    <td class="side-name" data-price='{"Price":"<%= s.price %>"}' id="side-<%= s.id %>"><%= s.name %></td>
     <td>€ <%= s.price %> </td>
     <td><input class="choose-side-checkbox" type="checkbox"></td>
   </tr>
