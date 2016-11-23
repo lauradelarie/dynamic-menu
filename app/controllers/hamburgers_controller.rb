@@ -49,7 +49,7 @@ class HamburgersController < ApplicationController
   private
 
     def order_params
-      params.require(:order).permit(:total_price, :choise, :served)
+      params.require(:order).permit(:total_price, :choise, :served, :table)
     end
 
 end

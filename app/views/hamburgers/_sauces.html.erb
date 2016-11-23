@@ -2,9 +2,9 @@
 
 <table class="sauces">
 
-<% @sides.each do |s| %>
+<% @sauces.each do |s| %>
   <tr>
-    <td class="sauce-name" data-price='{"Price":"<%= s.price %>"}' id="sauce-<%= s.id %>"><%= s.name %> </td>
+    <td class="sauce-name" data-price='{"Price":"<%= s.price %>"}' id="sauce-<%= s.id %>"><%= s.name %></td>
     <td>€ <%= s.price %> </td>
     <td><input class="choose-sauce-checkbox" type="checkbox"></td>
   </tr>
