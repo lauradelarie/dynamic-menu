@@ -11,22 +11,22 @@
 // about supported directives.
 //
 //= require jquery
-//= require bootstrap-sprockets
 //= require jquery_ujs
+//= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
 
 var choicesArray = [];
 
 function makeDescription(){
-  var description = choicesArray.join(', ')
+  var description = choicesArray.join(', ');
   $('ul.description').append('<li></li>').html(description);
 }
 
 // Order funtions//
 ///////////////////////////////////////////////////////////////////////////////////
 
-function createOrder(price, choice, tableNr) {
+function createOrder(price, choice, tableNr){
 
   $.ajax({
     type: "POST",
@@ -55,7 +55,7 @@ function createOrder(price, choice, tableNr) {
       var errorItem = $("<li></li>").html(value);
       $("#errors").append(errorItem);
     });
-  })
+  });
 
 }
 
@@ -64,7 +64,7 @@ function submitOrder(event) {
   var choice = $(event.target).siblings('.description').html();
   var tableNr = $('.dropdownmenu').val();
 
-  createOrder(price, choice, tableNr)
+  createOrder(price, choice, tableNr);
 }
 
 
@@ -75,7 +75,7 @@ function calculateTotal(){
   (pricesArray.length > 0) ?
   totalPrice = pricesArray.reduce((a, b) => {
     return a + b
-  }).toFixed(2) : (totalPrice = 0)
+  }).toFixed(2) : (totalPrice = 0);
 
   $('ul.total-price').append('<li>€</li>').html(totalPrice);
 }
@@ -86,7 +86,7 @@ function calculateTotal(){
 function removeSauce(event) {
 //remove side from orderlist
   var sauceId = $(event.target).parent().siblings('.sauce-name').attr('id');
-  $('#sauce-' + sauceId).remove()
+  $('#sauce-' + sauceId).remove();
 //remove sides price from pricesArray
   var saucePrice = Number($(event.target).parent().siblings('.sauce-name').data("price").Price);
   var index = pricesArray.indexOf(saucePrice);
@@ -107,7 +107,7 @@ function addSauce(event) {
   var sauceId = $(event.target).parent().siblings('.sauce-name').attr('id');
   var newSauce = $('<li></li>').html(sauce);
   newSauce.attr('id', 'sauce-' + sauceId);
-  newSauce.attr('val', 1)
+  newSauce.attr('val', 1);
 
   $('#order-list-sauces').append(newSauce);
 
@@ -128,7 +128,7 @@ function addSauce(event) {
 function removeSide(event) {
 //remove side from orderlist
   var sideId = $(event.target).parent().siblings('.side-name').attr('id');
-  $('#side-' + sideId).remove()
+  $('#side-' + sideId).remove();
 //remove sides price from pricesArray
   var sidePrice = Number($(event.target).parent().siblings('.side-name').data("price").Price);
   var index = pricesArray.indexOf(sidePrice);
@@ -149,7 +149,7 @@ function addSide(event) {
   var sideId = $(event.target).parent().siblings('.side-name').attr('id');
   var newSide = $('<li></li>').html(side);
   newSide.attr('id', 'side-' + sideId);
-  newSide.attr('val', 1)
+  newSide.attr('val', 1);
 
   $('#order-list-sides').append(newSide);
 
@@ -170,7 +170,7 @@ function addSide(event) {
 function removeTopping(event) {
 //remove topping from orderlist
   var toppingId = $(event.target).parent().siblings('.topping-name').attr('id');
-  $('#topping-' + toppingId).remove()
+  $('#topping-' + toppingId).remove();
 //remove topping's price from pricesArray
   var toppingPrice = Number($(event.target).parent().siblings('.topping-name').data("price").Price);
   var index = pricesArray.indexOf(toppingPrice);
@@ -191,7 +191,7 @@ function addTopping(event) {
   var toppingId = $(event.target).parent().siblings('.topping-name').attr('id');
   var newTopping = $('<li></li>').html(topping);
   newTopping.attr('id', 'topping-' + toppingId);
-  newTopping.attr('val', 1)
+  newTopping.attr('val', 1);
 
   $('#order-list-toppings').append(newTopping);
 
@@ -246,12 +246,12 @@ function addBurger(event) {
   $('#order-list-burger').append(newBurger);
 
   var deleteButton = $('<input>').html('X');
-  deleteButton.attr('type', 'button')
+  deleteButton.attr('type', 'button');
   deleteButton.attr('onClick', 'removeBurger(event)');
 
   newBurger.append(deleteButton);
 
-  $('.choose-burger-button').hide()
+  $('.choose-burger-button').hide();
 
   pricesArray.push(burgerPrice);
   calculateTotal();
@@ -269,8 +269,7 @@ function chooseTable(){
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
-
-$(document).on('turbolinks:load', function() {
+$(document).on('turbolinks:load', function(){
   $('.choose-burger-button').bind('click', addBurger);
 
   $('.dropdownmenu').bind('change', chooseTable);
@@ -280,10 +279,10 @@ $(document).on('turbolinks:load', function() {
     check = $(event.target).prop("checked");
 
     if(check) {
-      console.log("checked")
+      console.log("checked");
       addTopping(event);
     } else {
-      console.log("not checked")
+      console.log("not checked");
       removeTopping(event);
     };
 
@@ -294,10 +293,10 @@ $(document).on('turbolinks:load', function() {
     check = $(event.target).prop("checked");
 
     if(check) {
-      console.log("checked")
+      console.log("checked");
       addSide(event);
     } else {
-      console.log("not checked")
+      console.log("not checked");
       removeSide(event);
     };
 
@@ -308,22 +307,22 @@ $(document).on('turbolinks:load', function() {
     check = $(event.target).prop("checked");
 
     if(check) {
-      console.log("checked")
+      console.log("checked");
       addSauce(event);
     } else {
-      console.log("not checked")
+      console.log("not checked");
       removeSauce(event);
     };
 
   });
 
   $('.place-order').bind('click', submitOrder);
+
+  $(function() {
+    $('[data-toggle="popover"]').popover();
+    container: 'body'
+  });
 });
 
 //popover
 ///////////////////////////////////////////////////////////////////////////////////
-
-$(function () {
-  $('[data-toggle="popover"]').popover();
-  container: 'body'
-})

@@ -30,15 +30,9 @@ function serveBurger(event){
       var errorItem = $("<li></li>").html(value);
       $("#errors").append(errorItem);
     });
-  })
-
-
+  });
 }
 
-
-
 $(document).ready(function() {
-
-$('.serve-burger-button').bind('click', serveBurger);
-
+  $('.serve-burger-button').bind('click', serveBurger);
 });
