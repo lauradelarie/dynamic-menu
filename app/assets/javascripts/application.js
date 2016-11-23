@@ -310,7 +310,7 @@ $(document).on('turbolinks:load', function() {
   $('.place-order').bind('click', submitOrder);
 });
 
-
+//popover
 ///////////////////////////////////////////////////////////////////////////////////
 
 $(function () {
@@ -318,11 +318,8 @@ $(function () {
   container: 'body'
 })
 
-$('#tablelist li').on('click', function(){
-    $('#datebox').val($(this).text());
-});
+//dropdown-menu
+///////////////////////////////////////////////////////////////////////////////////
 
-$(".dropdown").on("show.bs.dropdown", function(event){
-    var x = $(event.relatedTarget).text(); // Get the text of the element
-    alert(x);
-});
+f
+  $('#table-number').append(newTable);
