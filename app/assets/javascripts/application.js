@@ -64,7 +64,6 @@ function submitOrder(event) {
   var choice = $(event.target).siblings('.description').html();
   var tableNr = $('.dropdownmenu').val();
   // var tableId = $('.dropdownmenu :selected').data("id").Id
-  debugger
   var tableIdStorage = localStorage.getItem('tableId');
   var tableObject = JSON.parse(tableIdStorage);
   var tableId = Number(tableObject["Id"]);
@@ -302,6 +301,12 @@ function chooseTable(){
 
 ///////////////////////////////////////////////////////////////////////////////////
 $(document).on('turbolinks:load', function(){
+  var tableIdStorage = localStorage.getItem('tableId');
+  var tableObject = JSON.parse(tableIdStorage);
+  var tableId = Number(tableObject["Id"]);
+
+  $('#table-number').append(tableId);
+  
   $('.choose-burger-button').bind('click', addBurger);
 
   $('.dropdownmenu').bind('change', chooseTable);
