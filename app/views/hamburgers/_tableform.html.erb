@@ -1,6 +1,6 @@
-<select class="dropdownmenu">
-  <option class="table-number" id="table-number-1">Choose a table</option>
+<select class="dropdownmenu" onchange="location = this.value;">
+  <option class="table-number" id="table-number-1" selected="selected">Choose a table</option>
   <% @tables.each do |t| %>
-    <option class="table-number" id="table-number-<%= t.id %>"><%= t.tablenumber %></option>
+    <option class="table-number" id="table-number-<%= t.id %>" value="/burger"><%= t.tablenumber %></option>
   <% end %>
 </select>

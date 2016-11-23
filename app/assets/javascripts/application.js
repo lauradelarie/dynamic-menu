@@ -263,7 +263,7 @@ function addBurger(event) {
 
 function chooseTable(){
   var tableNr = $('.dropdownmenu').val();
-
+  debugger
   // $.ajax({
   //   type: "PUT",
   //   url: "/hamburgers",
