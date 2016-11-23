@@ -26,7 +26,7 @@ function makeDescription(){
 // Order funtions//
 ///////////////////////////////////////////////////////////////////////////////////
 
-function createOrder(price, choice) {
+function createOrder(price, choice, tableNr) {
 
   $.ajax({
     type: "POST",
@@ -35,6 +35,7 @@ function createOrder(price, choice) {
       order: {
       total_price: price,
       choise: choice,
+      table: tableNr,
     }
   }),
 
@@ -59,12 +60,11 @@ function createOrder(price, choice) {
 }
 
 function submitOrder(event) {
-  debugger
   var price = Number($(event.target).siblings('.total-price').html());
   var choice = $(event.target).siblings('.description').html();
-  // var tablenumber
+  var tableNr = $('.dropdownmenu').val();
 
-  createOrder(price, choice)
+  createOrder(price, choice, tableNr)
 }
 
 
@@ -260,10 +260,20 @@ function addBurger(event) {
   makeDescription();
 }
 
+//choose a table dropdown
+///////////////////////////////////////////////////////////////////////////////////
+
+function chooseTable(){
+  var tableNr = $('.dropdownmenu').val();
+  $('#table-number').append(tableNr);
+}
+
 ///////////////////////////////////////////////////////////////////////////////////
 
 $(document).on('turbolinks:load', function() {
   $('.choose-burger-button').bind('click', addBurger);
+
+  $('.dropdownmenu').bind('change', chooseTable);
 
   var check;
   $('.choose-topping-checkbox').bind('click', function(){
@@ -317,9 +327,3 @@ $(function () {
   $('[data-toggle="popover"]').popover();
   container: 'body'
 })
-
-//dropdown-menu
-///////////////////////////////////////////////////////////////////////////////////
-
-f
-  $('#table-number').append(newTable);
