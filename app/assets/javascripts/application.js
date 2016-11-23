@@ -26,7 +26,7 @@ function makeDescription() {
 // Order funtions//
 ///////////////////////////////////////////////////////////////////////////////////
 
-function createOrder(price, choice, tableNr, tableId){
+function createOrder(price, choice, tableId){
 
   $.ajax({
     type: "POST",
@@ -35,7 +35,6 @@ function createOrder(price, choice, tableNr, tableId){
       order: {
       total_price: price,
       choise: choice,
-      table: tableNr,
       table_id: tableId
     }
   }),
@@ -68,7 +67,7 @@ function submitOrder(event) {
   var tableObject = JSON.parse(tableIdStorage);
   var tableId = Number(tableObject["Id"]);
 
-  createOrder(price, choice, tableNr, tableId);
+  createOrder(price, choice, tableId);
 }
 
 var pricesArray = [];
@@ -306,7 +305,7 @@ $(document).on('turbolinks:load', function(){
   var tableId = Number(tableObject["Id"]);
 
   $('#table-number').append(tableId);
-  
+
   $('.choose-burger-button').bind('click', addBurger);
 
   $('.dropdownmenu').bind('change', chooseTable);

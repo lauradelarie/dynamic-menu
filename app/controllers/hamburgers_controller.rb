@@ -18,6 +18,7 @@ class HamburgersController < ApplicationController
   end
 
   def create
+    debugger
     order = Order.create(order_params)
     if order.save
       render status: 200, json: {
@@ -50,7 +51,7 @@ class HamburgersController < ApplicationController
   private
 
     def order_params
-      params.require(:order).permit(:total_price, :choise, :served, :table, :table_id)
+      params.require(:order).permit(:total_price, :choise, :served, :table_id)
     end
 
 end
