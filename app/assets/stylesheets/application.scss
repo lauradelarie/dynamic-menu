@@ -64,7 +64,10 @@ h3 {
    padding: 0px;
    text-align: center;
    background: #000;
+   width: 1150px;
+   margin: auto;
  }
+
 
  .top {
    margin: 0px;
@@ -116,27 +119,31 @@ h3 {
     flex-wrap: wrap;
     flex-direction: row;
     padding-bottom: 30px;
+    padding-left: 85px;
 }
 
 
 .flexchild {
     width: 45%;
-    height: 420px;
+    height: 600px;
     padding-left: 20px;
     margin-top: 30px;
     border-style: double;
     text-align: center;
+    font-size: 200%;
+    border-radius: 8px;
 }
 
 
 .flex-child2 {
-    width: 30%;
+    width: 25%;
     // border-style: double;
     justify-content: space-around;
     align-items: flex-start;
     flex-wrap: nowrap;
     flex-direction: row;
     height: 100%;
+    margin-right: 70px;
 }
 
 
