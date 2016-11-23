@@ -1,9 +1,6 @@
 <select class="dropdownmenu">
-      <option class="table-number" id="table-number-1">Choose a table</option>
-      <option class="table-number" id="table-number-2">table 1</option>
-      <option class="table-number" id="table-number-3">table 2</option>
-      <option class="table-number" id="table-number-4">table 3</option>
-      <option class="table-number" id="table-number-5">table 4</option>
-      <option class="table-number" id="table-number-6">table 5</option>
-      <option class="table-number" id="table-number-7">table 6</option>
+  <option class="table-number" id="table-number-1">Choose a table</option>
+  <% @tables.each do |t| %>
+    <option class="table-number" id="table-number-<%= t.id %>"><%= t.tablenumber %></option>
+  <% end %>
 </select>

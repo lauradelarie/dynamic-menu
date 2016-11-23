@@ -2,7 +2,7 @@ class HamburgersController < ApplicationController
   before_action :authenticate_user!, only: :admin
 
   def index
-
+    @tables = Table.all
   end
 
   def burger

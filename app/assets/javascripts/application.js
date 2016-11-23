@@ -73,7 +73,7 @@ var pricesArray = [];
 function calculateTotal(){
   var totalPrice;
   (pricesArray.length > 0) ?
-  totalPrice = pricesArray.reduce((a, b) => {
+  totalPrice = pricesArray.reduce(function(a, b) {
     return a + b
   }).toFixed(2) : (totalPrice = 0)
 
@@ -265,6 +265,37 @@ function addBurger(event) {
 
 function chooseTable(){
   var tableNr = $('.dropdownmenu').val();
+
+  // $.ajax({
+  //   type: "PUT",
+  //   url: "/hamburgers",
+  //   data: JSON.stringify({
+  //     order: {
+  //     total_price: price,
+  //     choise: choice,
+  //     table: tableNr,
+  //   }
+  // }),
+  //
+  //   contentType: "application/json",
+  //   dataType: "json"
+  // })
+  //
+  // .success(function(data) {
+  //   var succes = $('<li></li>').html("Sent to the kitchen!");
+  //   $('ul.description').append(succes);
+  // })
+  //
+  // .fail(function(error) {
+  //   errors = JSON.parse(error.responseText).error
+  //
+  //   $.each(errors, function(index, value) {
+  //     var errorItem = $("<li></li>").html(value);
+  //     $("#errors").append(errorItem);
+  //   });
+  // })
+
+
   $('#table-number').append(tableNr);
 }
 
