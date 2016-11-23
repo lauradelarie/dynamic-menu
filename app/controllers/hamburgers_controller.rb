@@ -18,7 +18,6 @@ class HamburgersController < ApplicationController
   end
 
   def create
-    debugger
     order = Order.create(order_params)
     if order.save
       render status: 200, json: {

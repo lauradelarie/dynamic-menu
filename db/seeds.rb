@@ -19,7 +19,6 @@ table4 = Table.create(tablenumber: "Table 4")
 table5 = Table.create(tablenumber: "Table 5")
 table6 = Table.create(tablenumber: "Table 6")
 
-
 irish1 = Burger.create(meat: "Irish small", grams: 250, price: 6.95, veg: false, gluten: true)
 irish2 = Burger.create(meat: "Irish large", grams: 350, price: 8.95, veg: false, gluten: true)
 angus1 = Burger.create(meat: "Angus small", grams: 250, price: 7.95, veg: false, gluten: true)

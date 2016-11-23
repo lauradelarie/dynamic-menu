@@ -61,8 +61,6 @@ function createOrder(price, choice, tableId){
 function submitOrder(event) {
   var price = Number($(event.target).siblings('.total-price').html());
   var choice = $(event.target).siblings('.description').html();
-  var tableNr = $('.dropdownmenu').val();
-  // var tableId = $('.dropdownmenu :selected').data("id").Id
   var tableIdStorage = localStorage.getItem('tableId');
   var tableObject = JSON.parse(tableIdStorage);
   var tableId = Number(tableObject["Id"]);
