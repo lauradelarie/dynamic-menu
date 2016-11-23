@@ -262,7 +262,7 @@ function addBurger(event) {
 
 ///////////////////////////////////////////////////////////////////////////////////
 
-$(document).ready(function() {
+$(document).on('turbolinks:load', function() {
   $('.choose-burger-button').bind('click', addBurger);
 
   var check;
