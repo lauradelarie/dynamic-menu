@@ -296,13 +296,46 @@ function chooseTable(){
 
 }
 
-///////////////////////////////////////////////////////////////////////////////////
-$(document).on('turbolinks:load', function(){
+function changeMind(event) {
   var tableIdStorage = localStorage.getItem('tableId');
   var tableObject = JSON.parse(tableIdStorage);
   var tableId = Number(tableObject["Id"]);
 
-  $('#table-number').append(tableId);
+  $.ajax({
+    type: "PUT",
+    url: "/tables/" + tableId,
+    data: JSON.stringify({
+      table: {
+        taken: false
+      }
+    }),
+
+    contentType: "application/json",
+    dataType: "json"
+  })
+
+  .success(function(data) {
+  })
+
+  .fail(function(error) {
+    errors = JSON.parse(error.responseText).error
+
+    $.each(errors, function(index, value) {
+      var errorItem = $("<li></li>").html(value);
+      $("#errors").append(errorItem);
+    });
+  })
+}
+
+///////////////////////////////////////////////////////////////////////////////////
+$(document).on('turbolinks:load', function(){
+
+  // var tableIdStorage = localStorage.getItem('tableId');
+  // var tableObject = JSON.parse(tableIdStorage);
+  // var tableId = Number(tableObject["Id"]);
+  //
+  // $('#table-number').append(tableId);
+  $('.change-mind-link').bind('click', changeMind);
 
   $('.choose-burger-button').bind('click', addBurger);
 
