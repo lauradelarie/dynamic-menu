@@ -3,6 +3,7 @@
 </style>
 
 <h2>Flip-a-Fatty</h2>
+<br>
 
 <table class="burgers">
 
@@ -14,20 +15,16 @@
       <% else %>
         <td></td>
       <% end %>
-    <td class="burger-price" data-price='{"Price":"<%= b.price %>"}'> € <%= b.price %> </td>
-    <td> <button class="choose-burger-button"></button> </td>
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
-    <%- if b.gluten == true %>
-    <td>
-      <button type="button" class= "buttonpopoverstyle" data-toggle="popover" title="Popover title" data-trigger="focus" data-content="And here's some amazing content. It's very engaging. Right?"></button>
-    <% end %>
-    <%- if b.veg == true %>
-      <button type="button" class= "buttonpopoverstyle2" data-toggle="popover" title="Popover title" data-trigger="focus" data-content="And here's some amazing content. It's very engaging. Right?"></button>
     </td>
-    <% end %>
+    <td class="burger-price" data-price='{"Price":"<%= b.price %>"}'> € <%= b.price %> </td>
+      <td> <button class="choose-burger-button"></button></td>
+      <td><%- if b.gluten == true %>
+        <button type="button" class= "buttonpopoverstyle" data-toggle="popover" title="Popover title" data-trigger="focus" data-content="And here's some amazing content. It's very engaging. Right?"></button>
+      <% end %>
+      <%- if b.veg == true %>
+        <button type="button" class= "buttonpopoverstyle2" data-toggle="popover" title="Popover title" data-trigger="focus" data-content="And here's some amazing content. It's very engaging. Right?"></button>
+      <% end %>
+    </td>
   </tr>
 <% end %>
 

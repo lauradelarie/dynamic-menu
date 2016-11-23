@@ -44,7 +44,7 @@ function createOrder(price, choice, tableNr){
   })
 
   .success(function(data) {
-    var succes = $('<li></li>').html("Sent to the kitchen!");
+    var succes = $('<li></li>').addClass( "items_in_order").html("Sent to the kitchen!");
     $('ul.description').append(succes);
   })
 
@@ -114,7 +114,7 @@ function removeSauce(event) {
 function addSauce(event) {
   var sauce = $(event.target).parent().siblings('.sauce-name').html();
   var sauceId = $(event.target).parent().siblings('.sauce-name').attr('id');
-  var newSauce = $('<li></li>').html(sauce);
+  var newSauce = $('<li></li>').addClass( "items_in_order").html(sauce);
   newSauce.attr('id', 'sauce-' + sauceId);
   newSauce.attr('val', 1);
 
@@ -156,7 +156,7 @@ function removeSide(event) {
 function addSide(event) {
   var side = $(event.target).parent().siblings('.side-name').html();
   var sideId = $(event.target).parent().siblings('.side-name').attr('id');
-  var newSide = $('<li></li>').html(side);
+  var newSide = $('<li></li>').addClass( "items_in_order").html(side);
   newSide.attr('id', 'side-' + sideId);
   newSide.attr('val', 1);
 
@@ -198,7 +198,7 @@ function removeTopping(event) {
 function addTopping(event) {
   var topping = $(event.target).parent().siblings('.topping-name').html();
   var toppingId = $(event.target).parent().siblings('.topping-name').attr('id');
-  var newTopping = $('<li></li>').html(topping);
+  var newTopping = $('<li></li>').addClass( "items_in_order").html(topping);
   newTopping.attr('id', 'topping-' + toppingId);
   newTopping.attr('val', 1);
 
@@ -248,13 +248,13 @@ function addBurger(event) {
   var parent = $(event.target).parent().siblings('.burger-name');
   var meat = parent.html();
   var burgerId = parent.attr('id');
-  var newBurger = $('<li></li>').html('<div class="meat-name">' + meat + '</div>');
+  var newBurger = $('<li></li>').addClass( "items_in_order").html('<div class="meat-name">' + meat + '</div>');
   newBurger.attr('id', 'burger-' + burgerId);
   newBurger.attr('data-price', burgerPrice);
 
   $('#order-list-burger').append(newBurger);
 
-  var deleteButton = $('<input>').html('X');
+  var deleteButton = $('<input>').addClass( "burgerbutton").html('X');
   deleteButton.attr('type', 'button');
   deleteButton.attr('onClick', 'removeBurger(event)');
 
