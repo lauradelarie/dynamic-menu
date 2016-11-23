@@ -6,18 +6,25 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
+Table.delete_all
 Burger.delete_all
 Sauce.delete_all
 Topping.delete_all
 Side.delete_all
+
+table1 = Table.create(tablenumber: "Table 1")
+table2 = Table.create(tablenumber: "Table 2")
+table3 = Table.create(tablenumber: "Table 3")
+table4 = Table.create(tablenumber: "Table 4")
+table5 = Table.create(tablenumber: "Table 5")
+table6 = Table.create(tablenumber: "Table 6")
 
 irish1 = Burger.create(meat: "Irish small", grams: 250, price: 6.95, veg: false, gluten: true)
 irish2 = Burger.create(meat: "Irish large", grams: 350, price: 8.95, veg: false, gluten: true)
 angus1 = Burger.create(meat: "Angus small", grams: 250, price: 7.95, veg: false, gluten: true)
 angus2 = Burger.create(meat: "Angus large", grams: 350, price: 9.95, veg: false, gluten: true)
 chicken1 = Burger.create(meat: "Chicken Sandwich", grams: 200, price: 6.95, veg: false, gluten: true)
-portobello2 = Burger.create(meat: "Portobello", price: 8.95, veg: true, gluten: true)
+portobello2 = Burger.create(meat: "Portobello", price: 8.95, veg: true, gluten: false)
 
 mayo = Sauce.create(name: "Mayonaise", price: 0.60, veg: true, gluten: false)
 ketchup = Sauce.create(name: "Ketchup", price: 0.60, veg: true, gluten: false)

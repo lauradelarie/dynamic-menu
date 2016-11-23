@@ -26,7 +26,7 @@ function makeDescription() {
 // Order funtions//
 ///////////////////////////////////////////////////////////////////////////////////
 
-function createOrder(price, choice, tableId){
+function createOrder(price, choice, tableNr){
 
   $.ajax({
     type: "POST",
@@ -35,7 +35,7 @@ function createOrder(price, choice, tableId){
       order: {
       total_price: price,
       choise: choice,
-      table_id: tableId
+      table: tableNr,
     }
   }),
 
@@ -44,7 +44,7 @@ function createOrder(price, choice, tableId){
   })
 
   .success(function(data) {
-    var succes = $('<li></li>').addClass( "items_in_order").html("Sent to the kitchen!");
+    var succes = $('<li></li>').html("Sent to the kitchen!");
     $('ul.description').append(succes);
   })
 
@@ -61,21 +61,37 @@ function createOrder(price, choice, tableId){
 function submitOrder(event) {
   var price = Number($(event.target).siblings('.total-price').html());
   var choice = $(event.target).siblings('.description').html();
-  var tableIdStorage = localStorage.getItem('tableId');
-  var tableObject = JSON.parse(tableIdStorage);
-  var tableId = Number(tableObject["Id"]);
+  var tableNr = $('.dropdownmenu').val();
 
-  createOrder(price, choice, tableId);
+  createOrder(price, choice, tableNr);
 }
 
 var pricesArray = [];
 
 function calculateTotal() {
   var totalPrice;
+<<<<<<< HEAD
   (pricesArray.length > 0) ?
   totalPrice = pricesArray.reduce(function(a, b) {
     return a + b
   }).toFixed(2) : (totalPrice = 0)
+=======
+
+
+  // (pricesArray.length > 0) ?
+  // totalPrice = pricesArray.reduce((a, b) => {
+  //   return a + b;
+  // }).toFixed(2) : (totalPrice = 0);
+
+
+  if (pricesArray.length > 0) {
+    totalPrice = pricesArray.reduce(function(a, b) {
+      return a + b;
+    }).toFixed(2);
+  } else {
+    totalPrice = 0;
+  }
+>>>>>>> master
 
   $('ul.total-price').append('<li>€</li>').html(totalPrice);
 }
@@ -105,7 +121,7 @@ function removeSauce(event) {
 function addSauce(event) {
   var sauce = $(event.target).parent().siblings('.sauce-name').html();
   var sauceId = $(event.target).parent().siblings('.sauce-name').attr('id');
-  var newSauce = $('<li></li>').addClass( "items_in_order").html(sauce);
+  var newSauce = $('<li></li>').html(sauce);
   newSauce.attr('id', 'sauce-' + sauceId);
   newSauce.attr('val', 1);
 
@@ -147,7 +163,7 @@ function removeSide(event) {
 function addSide(event) {
   var side = $(event.target).parent().siblings('.side-name').html();
   var sideId = $(event.target).parent().siblings('.side-name').attr('id');
-  var newSide = $('<li></li>').addClass( "items_in_order").html(side);
+  var newSide = $('<li></li>').html(side);
   newSide.attr('id', 'side-' + sideId);
   newSide.attr('val', 1);
 
@@ -189,7 +205,7 @@ function removeTopping(event) {
 function addTopping(event) {
   var topping = $(event.target).parent().siblings('.topping-name').html();
   var toppingId = $(event.target).parent().siblings('.topping-name').attr('id');
-  var newTopping = $('<li></li>').addClass( "items_in_order").html(topping);
+  var newTopping = $('<li></li>').html(topping);
   newTopping.attr('id', 'topping-' + toppingId);
   newTopping.attr('val', 1);
 
@@ -239,13 +255,13 @@ function addBurger(event) {
   var parent = $(event.target).parent().siblings('.burger-name');
   var meat = parent.html();
   var burgerId = parent.attr('id');
-  var newBurger = $('<li></li>').addClass( "items_in_order").html('<div class="meat-name">' + meat + '</div>');
+  var newBurger = $('<li></li>').html('<div class="meat-name">' + meat + '</div>');
   newBurger.attr('id', 'burger-' + burgerId);
   newBurger.attr('data-price', burgerPrice);
 
   $('#order-list-burger').append(newBurger);
 
-  var deleteButton = $('<input>').addClass( "burgerbutton").html('X');
+  var deleteButton = $('<input>').html('X');
   deleteButton.attr('type', 'button');
   deleteButton.attr('onClick', 'removeBurger(event)');
 
@@ -264,46 +280,43 @@ function addBurger(event) {
 ///////////////////////////////////////////////////////////////////////////////////
 
 function chooseTable(){
-  var tableNr = $('.dropdownmenu :selected').text();
-  var id = $('.dropdownmenu :selected').data("id").Id
+  var tableNr = $('.dropdownmenu').val();
 
-  $.ajax({
-    type: "PUT",
-    url: "/tables/" + id,
-    data: JSON.stringify({
-      table: {
-        taken: true
-      }
-    }),
+  // $.ajax({
+  //   type: "PUT",
+  //   url: "/hamburgers",
+  //   data: JSON.stringify({
+  //     order: {
+  //     total_price: price,
+  //     choise: choice,
+  //     table: tableNr,
+  //   }
+  // }),
+  //
+  //   contentType: "application/json",
+  //   dataType: "json"
+  // })
+  //
+  // .success(function(data) {
+  //   var succes = $('<li></li>').html("Sent to the kitchen!");
+  //   $('ul.description').append(succes);
+  // })
+  //
+  // .fail(function(error) {
+  //   errors = JSON.parse(error.responseText).error
+  //
+  //   $.each(errors, function(index, value) {
+  //     var errorItem = $("<li></li>").html(value);
+  //     $("#errors").append(errorItem);
+  //   });
+  // })
 
-    contentType: "application/json",
-    dataType: "json"
-  })
 
-  .success(function(data) {
-    var tableIdStorage = { "Id": id }
-    localStorage.setItem('tableId', JSON.stringify(tableIdStorage));
-  })
-
-  .fail(function(error) {
-    errors = JSON.parse(error.responseText).error
-
-    $.each(errors, function(index, value) {
-      var errorItem = $("<li></li>").html(value);
-      $("#errors").append(errorItem);
-    });
-  })
-
+  $('#table-number').append(tableNr);
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
 $(document).on('turbolinks:load', function(){
-  var tableIdStorage = localStorage.getItem('tableId');
-  var tableObject = JSON.parse(tableIdStorage);
-  var tableId = Number(tableObject["Id"]);
-
-  $('#table-number').append(tableId);
-
   $('.choose-burger-button').bind('click', addBurger);
 
   $('.dropdownmenu').bind('change', chooseTable);

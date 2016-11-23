@@ -2,7 +2,7 @@ class HamburgersController < ApplicationController
   before_action :authenticate_user!, only: :admin
 
   def index
-
+    @tables = Table.all
   end
 
   def burger
@@ -10,6 +10,7 @@ class HamburgersController < ApplicationController
     @toppings = Topping.all
     @sauces = Sauce.all
     @sides = Side.all
+    @tables = Table.all
   end
 
   def admin
@@ -49,7 +50,7 @@ class HamburgersController < ApplicationController
   private
 
     def order_params
-      params.require(:order).permit(:total_price, :choise, :served, :table)
+      params.require(:order).permit(:total_price, :choise, :served, :table_id)
     end
 
 end
