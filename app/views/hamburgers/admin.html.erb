@@ -5,10 +5,15 @@
   <%- if h.served == false %>
     <p><strong>Table <%= h.table_id %>: </strong>
     <%= h.choise %>
-    <button type="button" class="serve-burger-button" id="serve-<%=h.id%>" data-id='{"Id":"<%= h.id %>"}'>Free</button>
-    <button type="button" class="free-table-button" id="free-table-<%= h.table_id %>" data-id='{"Id":"<%= h.table_id %>"}'>Serve</button>
+    <button type="button" class="serve-burger-button" id="serve-<%=h.id%>" data-id='{"Id":"<%= h.id %>"}'>Serve</button>
+    <!-- <button type="button" class="free-table-button" id="free-table-<%#= h.table_id %>" data-id='{"Id":"<%#= h.table_id %>"}'>Serve</button> -->
     </p>
   <% end %>
+<% end %>
+
+<ul class="kitchen-messages"></ul>
+<% @tables.each do |h| %>
+<button type="button" class="free-table-button" id="free-table-<%= h.id %>" data-id='{"Id":"<%= h.id %>"}'>Free Table <%= h.id %></button>
 <% end %>
 
 <%= link_to "Log out", destroy_user_session_path, method: :delete %>

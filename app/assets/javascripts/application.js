@@ -16,7 +16,7 @@
 //= require turbolinks
 //= require_tree .
 
-var choicesArray = [];
+var choicesArray = []
 
 function makeDescription() {
   var description = choicesArray.join(', ');
@@ -44,8 +44,10 @@ function createOrder(price, choice, tableId){
   })
 
   .success(function(data) {
-    var succes = $('<li></li>').addClass( "items_in_order").html("Sent to the kitchen!");
-    $('ul.description').append(succes);
+    var hamburgerStorage = { "hamburger": choice, "price": price }
+    localStorage.setItem('hamburger', JSON.stringify(hamburgerStorage));
+
+    location.reload();
   })
 
   .fail(function(error) {
@@ -329,12 +331,26 @@ function changeMind(event) {
 
 ///////////////////////////////////////////////////////////////////////////////////
 $(document).on('turbolinks:load', function(){
+  ////////loading from local storage /VVVVVVVV
+  var tableIdStorage = localStorage.getItem('tableId');
+  if (typeof tableIdStorage !== 'undefined' && tableIdStorage !== null) {
+    var tableObject = JSON.parse(tableIdStorage);
+    var tableId = Number(tableObject["Id"]);
 
-  // var tableIdStorage = localStorage.getItem('tableId');
-  // var tableObject = JSON.parse(tableIdStorage);
-  // var tableId = Number(tableObject["Id"]);
-  //
-  // $('#table-number').append(tableId);
+    $('#table-number').append(tableId);
+  }
+
+  var hamburgerStorage = localStorage.getItem('hamburger');
+
+  if (typeof hamburgerStorage !== 'undefined' && hamburgerStorage !== null) {
+    var hamburgerObject = JSON.parse(hamburgerStorage);
+    var hamburger = hamburgerObject["hamburger"]
+    var hamburgerPrice = hamburgerObject["price"]
+
+    $('#ordered-burgers-list').append(hamburger, ' €', hamburgerPrice);
+  }
+  ///////////loading from local storage/^^^^^^^^^^^
+
   $('.change-mind-link').bind('click', changeMind);
 
   $('.choose-burger-button').bind('click', addBurger);

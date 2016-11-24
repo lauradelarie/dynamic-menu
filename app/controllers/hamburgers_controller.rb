@@ -15,6 +15,7 @@ class HamburgersController < ApplicationController
 
   def admin
     @hamburgers = Order.all
+    @tables = Table.all
   end
 
   def create

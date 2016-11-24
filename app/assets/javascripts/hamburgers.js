@@ -1,8 +1,8 @@
 
 // JS regarding admin pages ///////////
 
+
 function freeTable(event) {
-  debugger
   var id = $(event.target).data("id").Id
 
   $.ajax({
@@ -19,8 +19,8 @@ function freeTable(event) {
   })
 
   .success(function(data) {
-    $('.free-table-button').hide();
-    $('.serve-burger-button').show();
+    var succes = $('<li></li>').html("Table " + id + " freed.")
+    $('.kitchen-messages').append(succes)
   })
 
   .fail(function(error) {
@@ -54,6 +54,7 @@ function serveBurger(event){
 
   .success(function() {
     $("#serve-" + id).parent().remove();
+    localStorage.removeItem('hamburger');
   })
 
   .fail(function(error) {
@@ -68,6 +69,6 @@ function serveBurger(event){
 
 $(document).on('turbolinks:load', function(){
   $('.serve-burger-button').bind('click', serveBurger);
-  $('.serve-burger-button').hide();
+  // $('.serve-burger-button').hide();
   $('.free-table-button').bind('click', freeTable);
 });
