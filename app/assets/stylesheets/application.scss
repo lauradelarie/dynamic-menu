@@ -269,3 +269,21 @@ h3 {
   text-align: center;
   font-size: 180%;
 }
+
+a {
+    color: white;
+}
+/* visited link */
+a:visited {
+    color: white;
+}
+
+/* mouse over link */
+a:hover {
+    color: white;
+}
+
+/* selected link */
+a:active {
+    color: white;
+}
