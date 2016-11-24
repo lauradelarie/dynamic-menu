@@ -1,6 +1,5 @@
 
 body{
-  color: red;
 
 }
 
@@ -14,11 +13,38 @@ body{
   text-align: center;
   color: #9E9D9B;
   background-image: url("http://res.cloudinary.com/dwbu8qlck/image/upload/v1479991562/border_hmn7qm.jpg");
+}
 
+a {
+    color: white;
+}
+/* visited link */
+a:visited {
+    color: white;
+}
+
+/* mouse over link */
+a:hover {
+    color: white;
+}
+
+/* selected link */
+a:active {
+    color: white;
 }
 
 .field {
   color:#9E9D9B;
+}
+
+input[type=submit]{
+  background-color: Transparent;
+  border: 2px double white;
+  border-radius: 8px;
+  width: 210px;
+  font-family: 'Gloria Hallelujah', cursive;
+  height: 30px;
+  text-align: center;
 }
 
 .sign-in {
