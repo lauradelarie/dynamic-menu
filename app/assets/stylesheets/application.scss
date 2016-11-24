@@ -17,7 +17,9 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
-
+li {
+  list-style: none;
+}
 .items_in_order{
   list-style: none outside none;
   text-align: left;
@@ -268,4 +270,40 @@ h3 {
 .items_in_order{
   text-align: center;
   font-size: 180%;
+}
+
+.admin-page {
+  position:relative;
+  top: 15%;
+  left: 30%;
+  width: 500px;
+  height: 700px;
+  text-align: center;
+  color: #9E9D9B;
+  font-family: 'Gloria Hallelujah';
+  font-size: 24px;
+  // background-image: url("http://res.cloudinary.com/dwbu8qlck/image/upload/v1479991562/border_hmn7qm.jpg");
+
+}
+
+
+.serve-burger-button {
+  background-color: Transparent;
+  border: 2px double white;
+  border-radius: 8px;
+  width: 80px;
+  height: 40px;
+  text-align: center;
+  font-size: 18px;
+
+}
+
+.free-table-button {
+  background-color: Transparent;
+  border: 2px double white;
+  border-radius: 8px;
+  width: 120px;
+  height: 60px;
+  text-align: center;
+  font-size: 18px;
 }
