@@ -44,8 +44,8 @@ function createOrder(price, choice, tableId){
   })
 
   .success(function(data) {
-    var hamburgerStorage = { "hamburger": choice, "price": price }
-    localStorage.setItem('hamburger', JSON.stringify(hamburgerStorage));
+    var hamburgerStorage = { "hamburger": choice, "price": price, "table": tableId }
+    localStorage.setItem('hamburger' + tableId, JSON.stringify(hamburgerStorage));
 
     location.reload();
   })
@@ -340,7 +340,7 @@ $(document).on('turbolinks:load', function(){
     $('#table-number').append(tableId);
   }
 
-  var hamburgerStorage = localStorage.getItem('hamburger');
+  var hamburgerStorage = localStorage.getItem('hamburger' + tableId);
 
   if (typeof hamburgerStorage !== 'undefined' && hamburgerStorage !== null) {
     var hamburgerObject = JSON.parse(hamburgerStorage);
