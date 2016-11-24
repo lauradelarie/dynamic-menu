@@ -40,7 +40,6 @@ function createFinalOrder(price, choice, tableId) {
     localStorage.setItem('hamburger' + tableId, JSON.stringify(hamburgerStorage));
 
     window.location.href = "/";
-
   })
 
   .fail(function(error) {
