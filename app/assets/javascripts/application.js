@@ -18,6 +18,51 @@
 
 var choicesArray = []
 
+
+function createFinalOrder(price, choice, tableId) {
+  $.ajax({
+    type: "POST",
+    url: "/hamburgers",
+    data: JSON.stringify({
+      order: {
+      total_price: price,
+      choise: choice,
+      table_id: tableId
+    }
+  }),
+
+    contentType: "application/json",
+    dataType: "json"
+  })
+
+  .success(function(data) {
+    var hamburgerStorage = { "hamburger": choice, "price": price, "table": tableId }
+    localStorage.setItem('hamburger' + tableId, JSON.stringify(hamburgerStorage));
+
+    window.location.href = "/";
+  })
+
+  .fail(function(error) {
+    errors = JSON.parse(error.responseText).error;
+
+    $.each(errors, function(index, value) {
+      var errorItem = $("<li></li>").html(value);
+      $("#errors").append(errorItem);
+    });
+  });
+}
+
+function doneOrdering(event) {
+  var price = Number($(event.target).siblings('.total-price').html());
+  var choice = $(event.target).siblings('.description').html();
+  var tableIdStorage = localStorage.getItem('tableId');
+  var tableObject = JSON.parse(tableIdStorage);
+  var tableId = Number(tableObject["Id"]);
+
+  createFinalOrder(price, choice, tableId);
+
+}
+
 function makeDescription() {
   var description = choicesArray.join(', ');
   $('ul.description').append('<li></li>').html(description);
@@ -47,7 +92,9 @@ function createOrder(price, choice, tableId){
     var hamburgerStorage = { "hamburger": choice, "price": price, "table": tableId }
     localStorage.setItem('hamburger' + tableId, JSON.stringify(hamburgerStorage));
 
+
     location.reload();
+
   })
 
   .fail(function(error) {
@@ -350,6 +397,8 @@ $(document).on('turbolinks:load', function(){
     $('#ordered-burgers-list').append(hamburger, ' €', hamburgerPrice);
   }
   ///////////loading from local storage/^^^^^^^^^^^
+
+  $('.done-order-button').bind('click', doneOrdering);
 
   $('.change-mind-link').bind('click', changeMind);
 
