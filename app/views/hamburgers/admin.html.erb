@@ -1,19 +1,30 @@
-<h3> admin </h3>
 
+<div class="admin-page">
+
+  <img src="http://res.cloudinary.com/dwbu8qlck/image/upload/v1479991783/burgerborder_col9sl.jpg">
+
+<h2> admin </h2>
+<br>
 
 <% @hamburgers.each do |h| %>
   <%- if h.served == false %>
     <p><strong>Table <%= h.table_id %>: </strong>
-    <%= h.choise %>
-    <button type="button" class="serve-burger-button" id="serve-<%=h.id%>" data-id='{"Id":"<%= h.id %>"}'>Serve</button>
+    <%= h.choise %> <br>
+    <button type="button" class="serve-burger-button" id="serve-<%=h.id%>" data-id='{"Id":"<%= h.id %>"}'>Serve</button><br><br>
     </p>
   <% end %>
 <% end %>
+<br>
+<% @tables.each do |h| %>
+<%- if h.taken == true %>
+  <button type="button" class="free-table-button" id="free-table-<%= h.id %>" data-id='{"Id":"<%= h.id %>"}'>Free Table <%= h.id %></button><br><br>
+<% end %>
+<% end %>
+
 
 <ul class="kitchen-messages"></ul>
-<% @tables.each do |h| %>
-  <%- if h.taken == true %>
-    <button type="button" class="free-table-button" id="free-table-<%= h.id %>" data-id='{"Id":"<%= h.id %>"}'>Free Table <%= h.id %></button>
-  <% end %>
-<% end %>
 <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+
+<img src="http://res.cloudinary.com/dwbu8qlck/image/upload/v1479991783/burgerborder_col9sl.jpg">
+
+</div>
