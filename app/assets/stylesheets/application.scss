@@ -253,7 +253,19 @@ h3 {
   background-color: Transparent;
   border: 2px double white;
   border-radius: 8px;
-  width: 100px;
-  height: 40px;
+  width: 150px;
+  height: 70px;
   text-align: center;
+}
+
+.orderlist{
+    font-family: 'Gloria Hallelujah', cursive;
+    text-align: center;
+    font-size: 100%;
+    // color: #9E9D9B;
+}
+
+.items_in_order{
+  text-align: center;
+  font-size: 180%;
 }
