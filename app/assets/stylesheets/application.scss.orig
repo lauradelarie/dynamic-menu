@@ -17,23 +17,85 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+li {
+  list-style: none;
+}
+.items_in_order{
+  list-style: none outside none;
+  text-align: left;
+  font-family: 'Gloria Hallelujah', cursive;
+}
 
-<<<<<<< HEAD
+ .table, th, td {
+    text-align: left;
+    padding: 8px;
+    font-family: 'Gloria Hallelujah', cursive;
+ }
+
+.hipster-cook {
+  position: absolute;
+  right: 5%;
+  top: 2%;
+  max-width: 80px;
+  max-height: 80px;
+}
+
 .burgers-main {
 }
 
 body {
-  background-image: url('http://res.cloudinary.com/dwbu8qlck/image/upload/v1479734422/blackboard_lq6z6l.jpg');
   color: #fff;
+  background: #303030;
+  background-size: cover;
+  // background-image: url("http://res.cloudinary.com/dsiyhc1tt/image/upload/v1479989689/chalkboard_blxx9o.jpg")
+}
+
+h1{
+  font-family: 'Fredericka the Great', cursive;
+    font-size: 70px;
+}
+
+h2{
+  font-family: 'Fredericka the Great', cursive;
+  font-size: 60px;
+}
+
+h3 {
+  font-family: 'Gloria Hallelujah', cursive;
+  color: #dfdcdc
 }
 //
 // http://res.cloudinary.com/dwbu8qlck/image/upload/v1479735787/black-1072366_1920_bdtz5q.jpg
  .banner {
    margin: 0px;
-   padding: 10px;
+   padding: 0px;
    text-align: center;
-   background: #2c4156;
+   width: 75%;
+   margin: auto;
+  //  background-image: url('http://res.cloudinary.com/dwbu8qlck/image/upload/v1479734422/blackboard_lq6z6l.jpg');
  }
+
+
+ .top {
+   margin: 0px;
+   padding: 0px;
+   text-align: center;
+   background: transpartent;
+   margin-top: 30px;
+   height: 150px;
+ }
+
+ .menu {
+   margin: 0px;
+   padding: 0px;
+   text-align: center;
+   background: transpartent;
+   max-width: 1000px;
+   margin-left: 100px;
+   margin-top: 30px;
+   height: 50px;
+ }
+
 
 
  .banner-title {
@@ -42,7 +104,79 @@ body {
    text-align: center;
    color: #fff;
  }
-=======
+
+
+ .flex-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  // position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  // background: black;
+}
+
+.flex-child1 {
+    display: flex;
+    width: 70%;
+    // border-style: double;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding-bottom: 30px;
+    padding-left: 50px;
+}
+
+
+.flexchild {
+    width: 50%;
+    height: 700px;
+    margin-top: 30px;
+    text-align: center;
+    font-size: 150%;
+    background-image: url("http://res.cloudinary.com/dwbu8qlck/image/upload/v1479991562/border_hmn7qm.jpg");
+    // background-image: url('http://res.cloudinary.com/dwbu8qlck/image/upload/c_scale,h_640,w_428/v1479984408/chalkboard1_uakdf3_f5jb3m.jpg');
+    // background-size:100%;
+    background-width:100%;
+    background-height:100%;
+    background-size: cover;
+    background-position: center center;
+}
+
+.flex-child2 {
+    width: 35%;
+    // border-style: double;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    height: 100%;
+    margin-right: 70px;
+}
+
+
+  .flexchild-order {
+    width: 100%;
+    padding-left: 20px;
+    margin: 30px;
+    margin-top: 30px;
+    // border-style: double;
+    height: 790px;
+    text-align: center;
+    list-style: none outside none;
+    background-color: #303030;
+    // background-image: url('http://res.cloudinary.com/dwbu8qlck/image/upload/v1479734422/blackboard_lq6z6l.jpg');
+    border-radius: 8px;
+    // opacity: 0.5;
+    // filter: alpha(opacity=50); /* For IE8 and earlier */
+  }
 
 .gluten-icon {
   max-width: 20px;
@@ -52,4 +186,143 @@ body {
   max-width: 20px;
   max-height: 20px;
 }
->>>>>>> master
+
+.footer {
+  text-align: center;
+  margin: 20px;
+  bottom: 0;
+  width: 100%;
+}
+
+.carousel-inner > .item > img {
+    margin: 0 auto;
+}
+
+.popover-content{
+    color: #000000 !important;/*black color*/
+}
+
+.buttonpopoverstyle{
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: no-repeat url("http://res.cloudinary.com/dwbu8qlck/image/upload/c_scale,w_24/v1479816678/gluten_lvzioj_fvpefg.png") 0 0;
+}
+
+.buttonpopoverstyle2{
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: no-repeat url("http://res.cloudinary.com/dwbu8qlck/image/upload/c_scale,w_23/v1479830442/broccoli_skuja3_jrvq56.png") 0 0;
+}
+
+.choose-burger-button{
+  width: 25px;
+  height: 25px;
+  border: none;
+  background: no-repeat url("http://res.cloudinary.com/dwbu8qlck/image/upload/c_scale,e_grayscale,w_20/e_brightness:80/v1479915790/mini_glyph_calculator-512_l1nptm.png") 0 0;
+  // background: no-repeat url("http://res.cloudinary.com/dwbu8qlck/image/upload/c_scale,e_negate,w_21/v1479832987/download_zihj3q.png") 0 0;
+}
+
+.dropdownmenu{
+  background-color: Transparent;
+  border: 2px double white;
+  border-radius: 8px;
+  width: 200px;
+  height: 40px;
+  text-align: center;
+}
+
+.table-number{
+  background-color: black;
+  border-radius: 8px;
+  width: 200px;
+  border: 2px double white;
+  text-align: center;
+
+
+}
+
+.burgerbutton{
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: no-repeat url("http://res.cloudinary.com/dwbu8qlck/image/upload/c_scale,e_grayscale,w_20/e_brightness:80/v1479916078/mini_glyph_calculator-512_1_2_k9v2at.png") 0 0;
+// background: no-repeat url("http://res.cloudinary.com/dwbu8qlck/image/upload/c_scale,e_negate,w_21/v1479832987/download_zihj3q.png") 0 0;
+}
+
+.place-order{
+  background-color: Transparent;
+  border: 2px double white;
+  border-radius: 8px;
+  width: 150px;
+  height: 70px;
+  text-align: center;
+}
+
+.orderlist{
+    font-family: 'Gloria Hallelujah', cursive;
+    text-align: center;
+    font-size: 100%;
+    // color: #9E9D9B;
+}
+
+.items_in_order{
+  text-align: center;
+  font-size: 180%;
+}
+
+<<<<<<< HEAD
+a {
+    color: white;
+}
+/* visited link */
+a:visited {
+    color: white;
+}
+
+/* mouse over link */
+a:hover {
+    color: white;
+}
+
+/* selected link */
+a:active {
+    color: white;
+=======
+.admin-page {
+  position:relative;
+  top: 15%;
+  left: 30%;
+  width: 500px;
+  height: 700px;
+  text-align: center;
+  color: #9E9D9B;
+  font-family: 'Gloria Hallelujah';
+  font-size: 24px;
+  // background-image: url("http://res.cloudinary.com/dwbu8qlck/image/upload/v1479991562/border_hmn7qm.jpg");
+
+}
+
+
+.serve-burger-button {
+  background-color: Transparent;
+  border: 2px double white;
+  border-radius: 8px;
+  width: 80px;
+  height: 40px;
+  text-align: center;
+  font-size: 18px;
+
+}
+
+.free-table-button {
+  background-color: Transparent;
+  border: 2px double white;
+  border-radius: 8px;
+  width: 120px;
+  height: 60px;
+  text-align: center;
+  font-size: 18px;
+>>>>>>> d786d7e7399577f009be905d8dc8b841b6305370
+}
