@@ -21,13 +21,13 @@
 .items_in_order{
   list-style: none outside none;
   text-align: left;
-  font-family: 'Kalam', cursive;
+  font-family: 'Gloria Hallelujah', cursive;
 }
 
  .table, th, td {
     text-align: left;
     padding: 8px;
-    font-family: 'Kalam', cursive;
+    font-family: 'Gloria Hallelujah', cursive;
  }
 .sign-up {
   color: black;
@@ -37,8 +37,8 @@
   position: absolute;
   right: 5%;
   top: 2%;
-  max-width: 50px;
-  max-height: 50px;
+  max-width: 80px;
+  max-height: 80px;
 }
 
 .burgers-main {
@@ -46,16 +46,18 @@
 
 body {
   color: #fff;
-  background: black;
+  background: #303030;
+  background-size: cover;
+  // background-image: url("http://res.cloudinary.com/dsiyhc1tt/image/upload/v1479989689/chalkboard_blxx9o.jpg")
 }
 
 h2{
   font-family: 'Fredericka the Great', cursive;
-  font-size: 40px;
+  font-size: 60px;
 }
 
 h3 {
-  font-family: 'Kalam', cursive;
+  font-family: 'Gloria Hallelujah', cursive;
   color: #dfdcdc
 }
 //
@@ -66,7 +68,7 @@ h3 {
    text-align: center;
    width: 75%;
    margin: auto;
-   background-image: url('http://res.cloudinary.com/dwbu8qlck/image/upload/v1479734422/blackboard_lq6z6l.jpg');
+  //  background-image: url('http://res.cloudinary.com/dwbu8qlck/image/upload/v1479734422/blackboard_lq6z6l.jpg');
  }
 
 
@@ -104,7 +106,7 @@ h3 {
 
  .flex-container {
   display: flex;
-  width: 75%;
+  width: 100%;
   justify-content: space-around;
   align-items: flex-start;
   flex-wrap: nowrap;
@@ -115,7 +117,7 @@ h3 {
   left: 0;
   right: 0;
   margin: auto;
-  background: black;
+  // background: black;
 }
 
 .flex-child1 {
@@ -137,7 +139,8 @@ h3 {
     margin-top: 30px;
     text-align: center;
     font-size: 150%;
-    background-image: url('http://res.cloudinary.com/dwbu8qlck/image/upload/c_scale,h_640,w_428/v1479984408/chalkboard1_uakdf3_f5jb3m.jpg');
+    background-image: url("http://res.cloudinary.com/dwbu8qlck/image/upload/v1479991562/border_hmn7qm.jpg");
+    // background-image: url('http://res.cloudinary.com/dwbu8qlck/image/upload/c_scale,h_640,w_428/v1479984408/chalkboard1_uakdf3_f5jb3m.jpg');
     // background-size:100%;
     background-width:100%;
     background-height:100%;
@@ -146,7 +149,7 @@ h3 {
 }
 
 .flex-child2 {
-    width: 25%;
+    width: 35%;
     // border-style: double;
     justify-content: space-around;
     align-items: flex-start;
@@ -158,15 +161,16 @@ h3 {
 
 
   .flexchild-order {
-    width: 83%;
+    width: 100%;
     padding-left: 20px;
     margin: 30px;
     margin-top: 30px;
-    border-style: double;
+    // border-style: double;
     height: 790px;
-    text-align: left;
+    text-align: center;
     list-style: none outside none;
-    background-image: url('http://res.cloudinary.com/dwbu8qlck/image/upload/v1479734422/blackboard_lq6z6l.jpg');
+    background-color: #303030;
+    // background-image: url('http://res.cloudinary.com/dwbu8qlck/image/upload/v1479734422/blackboard_lq6z6l.jpg');
     border-radius: 8px;
     // opacity: 0.5;
     // filter: alpha(opacity=50); /* For IE8 and earlier */
