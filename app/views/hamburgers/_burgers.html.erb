@@ -10,12 +10,6 @@
 <% @burgers.each do |b| %>
   <tr>
     <td class="burger-name" id="burger-<%= b.id %>"><%= b.meat %></td>
-      <%- if b.grams.present? %>
-        <td><%= b.grams %> gr. </td>
-      <% else %>
-        <td></td>
-      <% end %>
-    </td>
     <td class="burger-price" data-price='{"Price":"<%= b.price %>"}'> € <%= b.price %> </td>
       <td> <button class="choose-burger-button"></button></td>
       <td><%- if b.gluten == true %>
