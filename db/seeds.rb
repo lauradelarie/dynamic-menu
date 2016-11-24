@@ -5,12 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+Order.delete_all
 Table.delete_all
 Burger.delete_all
 Sauce.delete_all
 Topping.delete_all
 Side.delete_all
+
 
 table1 = Table.create(tablenumber: "Table 1")
 table2 = Table.create(tablenumber: "Table 2")
