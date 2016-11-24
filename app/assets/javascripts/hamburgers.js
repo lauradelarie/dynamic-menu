@@ -54,7 +54,7 @@ function serveBurger(event){
 
   .success(function() {
     $("#serve-" + id).parent().remove();
-    localStorage.removeItem('hamburger');
+    localStorage.clear();
   })
 
   .fail(function(error) {
