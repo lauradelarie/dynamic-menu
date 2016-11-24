@@ -79,7 +79,7 @@ function calculateTotal() {
     return a + b
   }).toFixed(2) : (totalPrice = 0)
 
-  $('ul.total-price').append('<li>€</li>').html(totalPrice);
+  $('ul.total-price').append('<li></li>').html('€' + totalPrice);
 }
 
 // Sauce funtions//
