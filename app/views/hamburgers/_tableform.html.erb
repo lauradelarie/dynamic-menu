@@ -2,7 +2,7 @@
   <option class="table-number" id="table-number-1" selected="selected">Choose a table</option>
   <% @tables.each do |t| %>
     <%- if t.taken == false %>
-      <option class="table-number" id="table-number-<%= t.id %>" data-id='{"Id":"<%= t.id %>"}' value="/burger"><%= t.tablenumber %></option>
+      <option class="table-number" id="table-number-<%= t.id %>" data-id='{"Id":"<%= t.id %>"}' data-table="<%= t.tablenumber %>" value="/burger"><%= t.tablenumber %></option>
     <% end %>
   <% end %>
 </select>

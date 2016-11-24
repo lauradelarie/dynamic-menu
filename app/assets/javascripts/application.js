@@ -126,7 +126,7 @@ function calculateTotal() {
     return a + b
   }).toFixed(2) : (totalPrice = 0)
 
-  $('ul.total-price').append('<li></li>').html('€' + totalPrice);
+  $('ul.total-price').append('<li></li>').html(totalPrice);
 }
 
 // Sauce funtions//
@@ -315,6 +315,7 @@ function addBurger(event) {
 function chooseTable(){
   var tableNr = $('.dropdownmenu :selected').text();
   var id = $('.dropdownmenu :selected').data("id").Id
+  var table = $('.dropdownmenu :selected').data("table")
 
   $.ajax({
     type: "PUT",
@@ -330,7 +331,7 @@ function chooseTable(){
   })
 
   .success(function(data) {
-    var tableIdStorage = { "Id": id }
+    var tableIdStorage = { "Id": id, table: table }
     localStorage.setItem('tableId', JSON.stringify(tableIdStorage));
   })
 
@@ -384,7 +385,7 @@ $(document).on('turbolinks:load', function(){
     var tableObject = JSON.parse(tableIdStorage);
     var tableId = Number(tableObject["Id"]);
 
-    $('#table-number').append(tableId);
+    $('#table-number').append(tableObject.table);
   }
 
   var hamburgerStorage = localStorage.getItem('hamburger' + tableId);

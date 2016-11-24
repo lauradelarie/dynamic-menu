@@ -8,7 +8,7 @@
 
 <% @hamburgers.each do |h| %>
   <%- if h.served == false %>
-    <p><strong>Table <%= h.table_id %>: </strong>
+    <p><strong><%= h.table.tablenumber %>: </strong>
     <%= h.choise %> <br>
     <button type="button" class="serve-burger-button" id="serve-<%=h.id%>" data-id='{"Id":"<%= h.id %>"}'>Serve</button><br><br>
     </p>
@@ -17,7 +17,7 @@
 <br>
 <% @tables.each do |h| %>
 <%- if h.taken == true %>
-  <button type="button" class="free-table-button" id="free-table-<%= h.id %>" data-id='{"Id":"<%= h.id %>"}'>Free Table <%= h.id %></button><br><br>
+  <button type="button" class="free-table-button" id="free-table-<%= h.id %>" data-id='{"Id":"<%= h.id %>"}'>Free <%= h.tablenumber %></button><br><br>
 <% end %>
 <% end %>
 

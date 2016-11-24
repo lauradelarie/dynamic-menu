@@ -4,6 +4,7 @@
 
 function freeTable(event) {
   var id = $(event.target).data("id").Id
+  var table = $(event.target).data("id").table
 
   $.ajax({
     type: "PUT",
@@ -19,7 +20,7 @@ function freeTable(event) {
   })
 
   .success(function(data) {
-    var succes = $('<li></li>').html("Table " + id + " freed.")
+    var succes = $('<li></li>').html("table freed.")
     $('.kitchen-messages').append(succes)
   })
 
