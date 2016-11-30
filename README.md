@@ -22,4 +22,4 @@ The database consists of the following tables:
 Screenshot
 ----
 
-![menu](http://res.cloudinary.com/dsiyhc1tt/image/upload/v1480523217/dynamic-menu_screenshot_zbk2rt.png)
+![menu](http://res.cloudinary.com/dsiyhc1tt/image/upload/v1480525926/dynamic-menu_screenshot_lhsnqv.png)

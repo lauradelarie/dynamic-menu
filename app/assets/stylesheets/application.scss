@@ -17,6 +17,24 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+
+ footer {
+     background-color: rgba(255, 255, 255, 0.5);
+     color: rgb(48, 48, 48);
+     letter-spacing: 2px;
+     font-size: 20px;
+     font-weight: bold;
+     text-align: center;
+     font-family: 'Indie Flower';
+     position: fixed;
+     bottom:0;
+     height: 35px;
+     width: 100%;
+     margin-top: 40px;
+     overflow:hidden;
+     padding: 5px;
+ }
+
 li {
   list-style: none;
 }
@@ -185,13 +203,6 @@ h3 {
 .veg-icon {
   max-width: 20px;
   max-height: 20px;
-}
-
-.footer {
-  text-align: center;
-  margin: 20px;
-  bottom: 0;
-  width: 100%;
 }
 
 .carousel-inner > .item > img {
