@@ -1,24 +1,25 @@
-# README
+Dynamic BurgerBar Menu -
+-----
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+is an app that enables customers to select and order menu items, foregoing the necessity of ordering with a waiter or waiting in line to order. This app was an assignment of Codaisseur Traineeship, week 8 (final group project).
 
-Things you may want to cover:
+Aim of this project has been to showcase skills learned during the traineeship, such as:
+- building a Ruby on Rails application from the ground up.
+- constructing a user interface using Javascript and jQuery.
+- authentication a user with devise.
+- updating a page asynchronously using AJAX.
+- using models and associations and the PostgresQL database.
 
-* Ruby version
+The database consists of the following tables:
+- Users (has_many :orders)
+- Orders (belongs_to :user)
+- Tables
+- Burgers
+- Sides
+- Toppings
+- Sauces
 
-* System dependencies
+Screenshot
+----
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+![menu](http://res.cloudinary.com/dsiyhc1tt/image/upload/v1480523217/dynamic-menu_screenshot_zbk2rt.png)
